@@ -1,0 +1,76 @@
+.sidebar {
+  flex: 1;
+  border-right: 0.5px solid rgb(230, 230, 230);
+  min-height: 100vh;
+
+  .top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(79, 82, 236);
+    }
+  }
+
+  .center {
+    padding-left: 10px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 22px;
+        padding-right: 10px;
+        color: #919191;
+        cursor: pointer;
+
+        &:hover {
+          color: #120ef4;
+          background-color: #f4f4f4;
+        }
+
+        span {
+          font-size: 15px;
+          font-weight: 600;
+          margin-left: 10px;
+        }
+
+        .icon {
+          font-size: 18px;
+          color: #4644d8;
+        }
+      }
+    }
+
+    .title {
+      font-size: 12px;
+      font-weight: bolder;
+      color: #a2a2a2;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  }
+
+  hr {
+    height: 0;
+    border: 0.5px solid rgb(230, 230, 230);
+  }
+
+  .bottom {
+    .wilmar-logo {
+      width: 150px;
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+}
