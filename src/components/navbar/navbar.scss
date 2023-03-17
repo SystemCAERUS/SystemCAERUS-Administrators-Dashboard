@@ -1,0 +1,32 @@
+.navbar {
+  height: 47px;
+  background-color: #181831;
+  box-shadow: 0px 3px;
+
+  .user {
+    background-color: white;
+    display: flex;
+    padding: 4px;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 250px;
+    border-radius: 2px;
+    box-shadow: 0px 1px 1px rgb(207, 207, 207);
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #8280ef;
+
+    .icon {
+      font-size: 18px;
+      color: #8280ef;
+    }
+
+    .username {
+      padding-left: 10px;
+      font-size: 16px;
+      font-weight: bolder;
+      color: #adadad;
+    }
+  }
+}
