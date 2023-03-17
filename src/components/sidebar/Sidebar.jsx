@@ -8,6 +8,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import NextPlanIcon from "@mui/icons-material/NextPlan";
 import Face6Icon from "@mui/icons-material/Face6";
 import NaturePeopleIcon from "@mui/icons-material/NaturePeople";
+import Logo from './logowilmar.png';
 
 function Sidebar() {
   return (
@@ -63,7 +64,7 @@ function Sidebar() {
         <a href="https://pyramidwilmar.com/" target="_blank">
           <img
             className="wilmar-logo"
-            src="https://th.bing.com/th/id/R.90ca7a4fd20410dc30120838477db029?rik=vO5oMnuusCMWRw&riu=http%3a%2f%2fs3.amazonaws.com%2fbizenglish%2fwp-content%2fuploads%2f2021%2f03%2f31132852%2fPyramid-Wilmar.png&ehk=sqMA%2bvZVr4iblBRPqL4jIVLn2kkKR0hdGIRW1ytWtJM%3d&risl=&pid=ImgRaw&r=0"
+            src={Logo}
             alt="alternatetext"
           />
         </a>
