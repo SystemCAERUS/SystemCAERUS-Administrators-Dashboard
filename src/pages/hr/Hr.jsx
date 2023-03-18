@@ -1,9 +1,24 @@
 import React from 'react'
+import Navbar from '../../components/navbar/Navbar'
+import Sidebar from '../../components/sidebar/Sidebar'
+import '../home/home.scss'
+import './hr.scss'
 
 function Hr() {
   return (
-    <div>
-      HR DEpartment details
+    <div className='home'>
+      <Sidebar/>
+      <div className="homeContainer">
+        <Navbar/>
+          <div className='hrwrapper'>
+            <div className="title">
+              Notifications
+            </div>
+            <div className="content">
+              
+            </div>
+          </div>
+      </div>
     </div>
   )
 }

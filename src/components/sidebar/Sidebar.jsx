@@ -58,6 +58,12 @@ function Sidebar() {
             <NaturePeopleIcon className="icon" />
             <span>HR</span>
           </li>
+
+          <p className="title">FACTORY MAP</p>
+          <li>
+            <NaturePeopleIcon className="icon" />
+            <span>Map</span>
+          </li>
         </ul>
       </div>
       <div className="bottom">

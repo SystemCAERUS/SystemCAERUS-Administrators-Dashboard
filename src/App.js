@@ -9,6 +9,7 @@ import {
   BrowserRouter,
   Routes,
 } from "react-router-dom";
+import Hr from './pages/hr/Hr'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/hr' element={<Hr/>}/>
           <Route path='users'>
             <Route index element = {<List/>}/>
             <Route path=":userId" element = {<Single/>}/>
