@@ -12,7 +12,7 @@ function Hr() {
         <Navbar/>
           <div className='hrwrapper'>
             <div className="title">
-              Notifications
+              <span className='notification'>Notifications</span>
             </div>
             <div className="content">
               
