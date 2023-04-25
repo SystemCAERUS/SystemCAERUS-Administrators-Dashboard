@@ -20,11 +20,15 @@ function App() {
           <button onClick={() => signIn()}>Login</button>
         ) : (
           <div>
-            <Home/>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/hr">
+              <Hr />
+            </Route>
             <Switch>
-              <Route exact path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/hr" element={<Hr />} />
+              <Route exact path="/hr" element={<Hr />} />
               <Route path="/users">
                 <Route index element={<List />} />
                 <Route path=":userId" element={<Single />} />
@@ -44,3 +48,4 @@ function App() {
 }
 
 export default App;
+

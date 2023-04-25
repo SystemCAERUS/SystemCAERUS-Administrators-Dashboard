@@ -8,6 +8,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import NextPlanIcon from "@mui/icons-material/NextPlan";
 import Face6Icon from "@mui/icons-material/Face6";
 import NaturePeopleIcon from "@mui/icons-material/NaturePeople";
+import { Link } from "react-router-dom";
 import Logo from './logowilmar.png';
 
 function Sidebar() {
@@ -20,6 +21,12 @@ function Sidebar() {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
+          <Link to="/hr" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
           <li>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
