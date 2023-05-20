@@ -1,0 +1,90 @@
+.msgBox{
+    width: 98%;
+    height: 50px;
+    color: #726d6d;
+    background-color:#ffffff;
+    margin: 10px;
+    box-shadow: 1px 1px 1px 1px #b5b5b5;
+    
+
+
+    .tr{
+        width: 100%;
+        height: 50px !important;
+        display: block !important;
+
+        td{
+            vertical-align: middle;
+            padding: 5px;
+        }
+
+        .date{
+            width: 10%;
+
+            .divDate{
+                background-color: #ffffff;
+                height: 40px;
+                color: rgb(62, 62, 62);
+                text-align: center;
+                font-weight: 700;
+                box-shadow: 0.4px 0px #4d4f4e;
+                
+            }
+
+        }
+
+        .msg{
+            width: 80%;
+
+            .message{
+                background-color: #ffffff;
+                height: 35px;
+                color: rgb(63, 63, 63);
+                text-align: left;
+                justify-content: center;
+                padding: 3px;
+                cursor: pointer;
+                font-weight: 700;
+                box-shadow: 0.4px 0px #4d4f4e;
+            }
+        }
+
+        .update{
+            background-color: #eefff3;
+            box-shadow: 0.5px 0.5px #dbdbdb;
+            border: none;
+            color: #84e3a0;
+            text-align: center;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            border-radius: 1.5px 1.5px 3px 3px;
+    
+            &:hover {
+              background-color: #92ffb3;
+            }
+        }
+
+        .delete{
+            background-color: #ffebeb;
+            box-shadow: 0.5px 0.5px #dbdbdb;
+            border: none;
+            color: #d95656;
+            text-align: center;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            border-radius: 1.5px 1.5px 3px 3px;
+    
+            &:hover {
+              background-color: #ff8686;
+            }
+        }
+    }
+}

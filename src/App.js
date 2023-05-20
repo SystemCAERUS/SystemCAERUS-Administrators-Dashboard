@@ -1,38 +1,44 @@
-import Home from './pages/home/Home'
-import Login from './pages/login/Login'
-import List from './pages/list/List'
-import Single from './pages/single/Single'
-import New from './pages/new/New'
+import Home from "./pages/Dashboard/Home";
+import Hr from "./pages/Notices/Hr";
+import Add from "./pages/Notices/components/Add";
+import "./App.scss";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import Update from "./pages/Notices/components/Update";
 
-import {
-  Route,
-  BrowserRouter,
-  Routes,
-} from "react-router-dom";
-import Hr from './pages/hr/Hr'
+import { useAuthContext } from "@asgardeo/auth-react";
+import { Route, BrowserRouter} from "react-router-dom";
 
 function App() {
+  const { state, signIn } = useAuthContext();
+
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/hr' element={<Hr/>}/>
-          <Route path='users'>
-            <Route index element = {<List/>}/>
-            <Route path=":userId" element = {<Single/>}/>
-            <Route path="new" element = {<New/>}/>
-          </Route>
-          <Route path='products'>
-            <Route index element = {<List/>}/>
-            <Route path=":productId" element = {<Single/>}/>
-            <Route path="new" element = {<New/>}/>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        {!state.isAuthenticated ? (
+          <div className="splash">
+            <h1 className="title">System CAERUS</h1>
+            <button className="button" onClick={() => signIn()}>
+              <CheckCircleOutlineIcon className="signin" />
+            </button>
+          </div>
+        ) : (
+          <div>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/hr">
+              <Hr />
+            </Route>
+            <Route exact path="/hr/add">
+              <Add />
+            </Route>
+            <Route exact path="/hr/update/:id">
+              <Update />
+            </Route>
+          </div>
+        )}
+      </div>
+    </BrowserRouter>
   );
 }
 

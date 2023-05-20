@@ -1,0 +1,40 @@
+.home {
+    .homeContainer {
+      background-color: white;
+      .hrwrapper {
+        margin: 18px;
+        background-color: #ffffff;
+        color: red;
+        width: 80vw;
+        min-height: 88vh;
+        box-shadow: 0.75px 0.75px 1px 1px #c0c0c0;
+        
+
+        .form{
+          text-align: center;
+
+          .title{
+            font-size: 24px;
+            font-weight: 800;
+            color: rgb(142, 142, 142);
+            
+          }
+
+          .notification{
+            margin: 20px;
+            width: 500px;
+            height: 20px;
+          }
+
+          .desc{
+            margin: 20px;
+            width: 500px;
+            height: 200px;
+          }
+        }
+  
+        
+      }
+    }
+  }
+  
