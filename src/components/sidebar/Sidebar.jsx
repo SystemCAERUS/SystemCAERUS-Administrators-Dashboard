@@ -12,6 +12,9 @@ import Logo from "./logowilmar.png";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
+
+  const { state, signIn, signOut } = useAuthContext();
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -71,6 +74,9 @@ function Sidebar() {
             <NaturePeopleIcon className="icon" />
             <span>Map</span>
           </li>
+          {state.isAuthenticated ? (
+          <button onClick={() => signOut()}>SignOut</button>
+        ):<div>No</div>}
         </ul>
       </div>
     </div>
