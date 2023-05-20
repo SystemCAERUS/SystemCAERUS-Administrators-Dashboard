@@ -1,0 +1,25 @@
+.clock{
+    margin: 15px;
+    height: 60px;
+    background: linear-gradient(to right, #4f577d,#414058);
+    border-radius: 10px;
+    width: 120px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    color: #FDF4F5;
+    font-size: 22px;
+    box-shadow: 0.8px 0.8px #4d4f4e;
+
+    .title{
+        background: linear-gradient(to right,   #30385f, #564a71);
+        border-radius: 10px 10px 0px 0px;
+        font-size: 14px;
+    }
+
+    .timeLive{
+        margin-top: 5px;
+    }
+    
+}

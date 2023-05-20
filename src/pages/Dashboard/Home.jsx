@@ -2,6 +2,8 @@ import React from 'react'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './home.scss'
 import Navbar from '../../components/navbar/Navbar'
+import ClockWidget from './components/Clock'
+import Issues from './components/Issues'
 
 const Home = () => {
   return (
@@ -9,7 +11,11 @@ const Home = () => {
       <Sidebar/>
       <div className="homeContainer">
         <Navbar/>
-        Content
+        <div className='content'>
+          
+          <Issues/>
+          
+        </div>
       </div>
     </div>
   )

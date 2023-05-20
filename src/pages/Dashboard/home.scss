@@ -1,0 +1,20 @@
+.home, .login{
+    display: flex;
+    
+    .homeContainer{
+        flex: 6;
+        background-color: #b5b5ff;
+        
+
+       .content{
+        display: flex;
+        position: relative;
+
+        .clock{
+            position: absolute; 
+            top: 0; 
+            right: 0;
+        }
+       }
+    }
+}
