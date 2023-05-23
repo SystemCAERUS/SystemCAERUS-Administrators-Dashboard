@@ -1,5 +1,6 @@
 import React from 'react'
 import './navbar.scss'
+import Face6Icon from "@mui/icons-material/Face6";
 import ClockLive from "react-live-clock";
 import Logo from "../sidebar/logowilmar.png";
 import NotificationsIcon from '@mui/icons-material/Notifications';

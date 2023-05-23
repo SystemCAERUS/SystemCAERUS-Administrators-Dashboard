@@ -10,12 +10,8 @@ import Face6Icon from "@mui/icons-material/Face6";
 import NaturePeopleIcon from "@mui/icons-material/NaturePeople";
 import Logo from "./logowilmar.png";
 import { Link } from "react-router-dom";
-import { useAuthContext } from "@asgardeo/auth-react";
 
 function Sidebar() {
-
-  const { state, signIn, signOut } = useAuthContext();
-
   return (
     <div className="sidebar">
       <div className="top">
@@ -75,7 +71,6 @@ function Sidebar() {
             <NaturePeopleIcon className="icon" />
             <span>Map</span>
           </li>
-
         </ul>
       </div>
     </div>
