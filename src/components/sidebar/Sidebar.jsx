@@ -38,8 +38,8 @@ function Sidebar() {
 
           <Link to="/planner" style={{ textDecoration: "none" }}>
             <li>
-            <NextPlanIcon className="icon" />
-            <span>Planner</span>
+              <NextPlanIcon className="icon" />
+              <span>Planner</span>
             </li>
           </Link>
           <hr />
@@ -47,8 +47,8 @@ function Sidebar() {
 
           <Link to="/equipment" style={{ textDecoration: "none" }}>
             <li>
-            <HandymanIcon className="icon" />
-            <span>Equipment</span>
+              <HandymanIcon className="icon" />
+              <span>Equipment</span>
             </li>
           </Link>
           <Link to="/machines" style={{ textDecoration: "none" }}>
