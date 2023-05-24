@@ -8,7 +8,6 @@ import ChatIcon from "@mui/icons-material/Chat";
 import NextPlanIcon from "@mui/icons-material/NextPlan";
 import Face6Icon from "@mui/icons-material/Face6";
 import NaturePeopleIcon from "@mui/icons-material/NaturePeople";
-import Logo from "./logowilmar.png";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
@@ -30,34 +29,50 @@ function Sidebar() {
           </Link>
           <hr />
           <p className="title">TRACKING</p>
-          <li>
-            <WorkHistoryIcon className="icon" />
-            <span>Issues</span>
-          </li>
-          <li>
+          <Link to="/issues" style={{ textDecoration: "none" }}>
+            <li>
+              <WorkHistoryIcon className="icon" />
+              <span>Issues</span>
+            </li>
+          </Link>
+
+          <Link to="/planner" style={{ textDecoration: "none" }}>
+            <li>
             <NextPlanIcon className="icon" />
             <span>Planner</span>
-          </li>
+            </li>
+          </Link>
           <hr />
           <p className="title">INFORMATION</p>
-          <li>
+
+          <Link to="/equipment" style={{ textDecoration: "none" }}>
+            <li>
             <HandymanIcon className="icon" />
             <span>Equipment</span>
-          </li>
-          <li>
-            <PrecisionManufacturingIcon className="icon" />
-            <span>Machinery</span>
-          </li>
-          <li>
-            <Face6Icon className="icon" />
-            <span>Employee</span>
-          </li>
+            </li>
+          </Link>
+          <Link to="/machines" style={{ textDecoration: "none" }}>
+            <li>
+              <PrecisionManufacturingIcon className="icon" />
+              <span>Machinery</span>
+            </li>
+          </Link>
+          <Link to="/employees" style={{ textDecoration: "none" }}>
+            <li>
+              <Face6Icon className="icon" />
+              <span>Employee</span>
+            </li>
+          </Link>
+
           <hr />
           <p className="title">HR & COMMUNICATION</p>
-          <li>
-            <ChatIcon className="icon" />
-            <span>Chat</span>
-          </li>
+
+          <Link to="/chat" style={{ textDecoration: "none" }}>
+            <li>
+              <ChatIcon className="icon" />
+              <span>Chat</span>
+            </li>
+          </Link>
 
           <Link to="/hr" style={{ textDecoration: "none" }}>
             <li>
@@ -67,10 +82,12 @@ function Sidebar() {
           </Link>
           <hr />
           <p className="title">FACTORY MAP</p>
-          <li>
-            <NaturePeopleIcon className="icon" />
-            <span>Map</span>
-          </li>
+          <Link to="/map" style={{ textDecoration: "none" }}>
+            <li>
+              <NaturePeopleIcon className="icon" />
+              <span>Map</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>
