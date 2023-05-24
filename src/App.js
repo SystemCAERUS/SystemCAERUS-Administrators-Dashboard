@@ -8,7 +8,7 @@ import { useAuthContext } from "@asgardeo/auth-react";
 import { Route, BrowserRouter } from "react-router-dom";
 import Machines from "./pages/Machinery/Machines";
 import Planner from "./pages/Planner/Planner";
-import Issues from "./pages/Dashboard/components/Issues";
+import Issues from "./pages/Issues/Issues";
 import Chat from "./pages/Chat/Chat";
 import Map from "./pages/Map/Map";
 import Employee from "./pages/Employee/Employee";
