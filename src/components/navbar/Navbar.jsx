@@ -1,13 +1,12 @@
 import React from 'react'
 import './navbar.scss'
-import Face6Icon from "@mui/icons-material/Face6";
 import ClockLive from "react-live-clock";
 import Logo from "../sidebar/logowilmar.png";
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useAuthContext } from "@asgardeo/auth-react";
 
 function Navbar() {
-  const { state, signIn, signOut } = useAuthContext();
+  const { state,  signOut } = useAuthContext();
 
   return (
     <div className='navbar'>
@@ -24,6 +23,10 @@ function Navbar() {
         </a>
       </div>
       <NotificationsIcon className='notification'/>
+      <a href="https://console.asgardeo.io/t/systemcaerusproject/manage/users" target="_blank">
+      <button className='superadmin'>Super Admin</button>
+      </a>
+      
       {state.isAuthenticated ? (
           <button className='signout' onClick={() => signOut()}>Sign Out</button>
           
