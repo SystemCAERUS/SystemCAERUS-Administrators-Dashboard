@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "../Dashboard/home.scss";
 import Navbar from "../../components/navbar/Navbar";
+import "./equipment.scss"
 
 function Equipment() {
   return (
@@ -9,7 +10,9 @@ function Equipment() {
     <Sidebar />
     <div className="homeContainer">
       <Navbar />
-      <div className="content">Equipment</div>
+      <div className="contentequipment">
+        Equipment
+      </div>
     </div>
   </div>
   )

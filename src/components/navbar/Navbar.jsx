@@ -31,7 +31,7 @@ function Navbar() {
           <button className='signout' onClick={() => signOut()}>Sign Out</button>
           
         ) : (<p></p>)}
-      <li>{state.username}</li>
+      {/*<li>{state.username}</li>*/}
       <img src="https://media.licdn.com/dms/image/D5603AQEft-FC8YiO8Q/profile-displayphoto-shrink_800_800/0/1672297319886?e=1687996800&v=beta&t=T3cb3lqqo4D9qIkPE27ayUrycudMI5iCEJYuVDnCwdw" alt="Avatar" class="avatar"></img>
     </div>
   )

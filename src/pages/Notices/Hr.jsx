@@ -7,12 +7,14 @@ import "../Dashboard/home.scss";
 import { Link } from "react-router-dom";
 import "./hr.scss";
 
+
 function Hr() {
   const [notification, setNotification] = useState([]);
   useEffect(() => {
     const fetchedMsges = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/hr");
+          const res = await axios.get("http://localhost:8800/hr");
+        /*const res = await fetchNotifications();*/
         setNotification(res.data);
       } catch (err) {
         console.log(err);
