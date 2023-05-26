@@ -1,17 +1,25 @@
 .contentequipment{
     color: #cb2222;
     padding: 30px;
+    display: flex;
 
-    .underrepairtable{
-        background-color: #cb2222;
-        width: 600px;
+    .spareparts{
+        width: 50%;
+        background-color: rgb(247, 246, 244);
         height: 85vh;
+
+        .sparetitle{
+            text-align: center;
+            height: 30px;
+            background-color: antiquewhite;
+        }
     }
 
-    .manage{
+    .sparesection{
         margin-left: 30px;
-        background-color: aqua;
-        width:600px;
-
+        background-color: rgb(247, 246, 244);
+        width: 50%;
     }
+
+    
 }

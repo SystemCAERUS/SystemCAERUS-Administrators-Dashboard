@@ -11,7 +11,14 @@ function Equipment() {
     <div className="homeContainer">
       <Navbar />
       <div className="contentequipment">
-        Equipment
+        <div className="spareparts">
+          <div className="sparetitle">Parts Under Reapair</div>
+          <div></div>
+        </div>
+        <div className="sparesection">
+          <div>Manage</div>
+          <div>Graph</div>
+        </div>
       </div>
     </div>
   </div>
