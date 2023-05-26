@@ -13,11 +13,17 @@ function Equipment() {
       <div className="contentequipment">
         <div className="spareparts">
           <div className="sparetitle">Parts Under Reapair</div>
-          <div></div>
+          <div>parts</div>
         </div>
         <div className="sparesection">
-          <div>Manage</div>
-          <div>Graph</div>
+          <div>
+            <div className="manageTitle">Manage</div>
+            <div className="manageContent"></div>
+          </div>
+          <div>
+            <div className="graphtitle">Graph</div>
+            <div></div>
+          </div>
         </div>
       </div>
     </div>

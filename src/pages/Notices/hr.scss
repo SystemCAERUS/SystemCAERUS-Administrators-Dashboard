@@ -31,8 +31,8 @@
       }
 
       .title {
-        height: 50px;
-        background-color: #ffffff;
+        height: 40px;
+        background-color:  rgb(238, 234, 231); //                #ffffff;
         border-radius: 2px 2px 2px 2px;
         margin-top: 10px;
         padding-top: 10px;
@@ -46,13 +46,14 @@
         .notification {
           margin: auto;
           display: block;
-          color: #999;
+          color: #848484;
         }
       }
 
       .content {
         position: relative;
         display: block !important;
+        background-color: rgb(249, 249, 249);
       }
     }
   }

@@ -32,7 +32,7 @@ function Hr() {
           <div className="title">
             <span className="notification">Notifications</span>
           </div>
-          <div className="content">
+          <div className="content" style={{ overflowY: "auto", maxHeight: "70vh" }}>
             {notification.map((msg) => (
               <MsgBox
                 message={msg.notification}
