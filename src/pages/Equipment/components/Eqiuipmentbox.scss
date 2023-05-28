@@ -1,0 +1,41 @@
+.table-container {
+  display: table;
+  width: 100%;
+}
+
+.givendate,
+.repairdate,
+.repairname,
+.mNameData,
+.dNameData {
+  text-align: center;
+  border-bottom: 0.1px solid rgb(219, 219, 219);
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: rgb(82, 82, 82);
+}
+
+.repairdate {
+  width: 15%;
+  background-color: rgb(254, 255, 236);
+}
+
+.givendate {
+  width: 15%;
+  background-color: rgb(255, 207, 207);
+}
+
+.repairname {
+  width: 30%;
+  background-color: rgb(242, 255, 255);
+}
+
+.mNameData {
+  width: 20%;
+  background-color: rgb(255, 246, 255);
+}
+
+.dNameData {
+  width: 20%;
+  background-color: rgb(251, 193, 255);
+}

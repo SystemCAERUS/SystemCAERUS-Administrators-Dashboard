@@ -30,7 +30,7 @@ function Hr() {
         <Navbar />
         <div className="hrwrapper">
           <div className="title">
-            <span className="notification">Notifications</span>
+            <span className="notification">Notice Board</span>
           </div>
           <div className="content" style={{ overflowY: "auto", maxHeight: "70vh" }}>
             {notification.map((msg) => (

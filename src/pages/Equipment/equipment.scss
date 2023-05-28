@@ -1,50 +1,143 @@
-.contentequipment{
-    color: #cb2222;
-    padding: 30px;
-    display: flex;
+.contentequipment {
+  color: #cb2222;
+  padding: 30px;
+  display: flex;
 
-    .spareparts{
-        width: 50%;
-        background-color: rgb(247, 246, 244);
-        height: 85vh;
+  .spareparts {
+    width: 50%;
+    background-color: rgb(247, 246, 244);
+    height: 85vh;
 
-        .sparetitle{
-            text-align: center;
-            height: 20px;
-            padding: 5px;
-            background-color: rgb(238, 234, 231);
-            color: #6c6c6c;
-            font-weight: 600;
-        }
+    .sparetitle {
+      text-align: center;
+      height: 30px;
+      padding: 5px;
+      background-color: rgb(238, 234, 231);
+      color: #6c6c6c;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      justify-content: center;
     }
 
-    .sparesection{
-        margin-left: 30px;
-        background-color: rgb(247, 246, 244);
-        width: 50%;
+    .partscontent {
+      overflow-x: hidden;
+      .tableHeader {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+        padding-top: 2px;
+      }
 
-        .manageTitle{
-            padding: 5px;
-            text-align: center;
-            height: 20px;
-            color: #6c6c6c;
-            font-weight: 600;
-            background-color: rgb(238, 234, 231);// antiquewhite;
-        }
+      .givendateH,
+      .repairdateH,
+      .repairnameH,
+      .mNameDataH,
+      .dNameDataH {
+        text-align: center;
+        border-top: 0.5px solid rgb(66, 66, 66);
+        border-right: 0.1px solid rgb(202, 202, 202);
+        border-bottom: 0.1px solid rgb(66, 66, 66);
+        color: rgb(72, 72, 72);
+        font-weight: 300;
+        padding: 8px;
+      }
 
-        .manageContent{
-            height: 40vh;
-        }
+      .repairdateH {
+        width: 15%;
+        background-color: rgb(246, 243, 241);
+      }
 
-        .graphtitle{
-            padding: 5px;
-            text-align: center;
-            height: 20px;
-            color: #6c6c6c;
-            font-weight: 600;
-            background-color: rgb(238, 234, 231);
-        }
+      .givendateH {
+        width: 15%;
+        background-color: rgb(246, 243, 241);
+      }
+
+      .repairnameH {
+        width: 30%;
+        background-color: rgb(246, 243, 241);
+      }
+
+      .mNameDataH {
+        width: 20%;
+        background-color: rgb(246, 243, 241);
+      }
+
+      .dNameDataH {
+        width: 20%;
+        background-color: rgb(246, 243, 241);
+      }
+    }
+  }
+
+  .sparesection {
+    margin-left: 30px;
+    background-color: rgb(247, 246, 244);
+    width: 50%;
+
+    .manageTitle {
+      padding: 5px;
+      text-align: center;
+      height: 20px;
+      color: #6c6c6c;
+      font-weight: 600;
+      background-color: rgb(238, 234, 231); // antiquewhite;
+      box-shadow: 0.5px 0.5px #c9c9c9;
     }
 
-    
+    .manageContent {
+      height: 12vh;
+
+      .addRepair {
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        height: 4vh;
+        color: #8f8f8f;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+        box-shadow: 0.5px 0.5px #dbdbdb;
+
+        &:hover {
+          background-color: #f4f4f4;
+          color: #707070;
+        }
+      }
+
+      .manageRepair {
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        height: 4vh;
+        color: #8f8f8f;
+        cursor: pointer;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        display: flex;
+        box-shadow: 0.5px 0.5px #dbdbdb;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background-color: #f4f4f4;
+          color: #707070;
+        }
+      }
+    }
+
+    .graphtitle {
+      padding: 5px;
+      text-align: center;
+      height: 20px;
+      color: #6c6c6c;
+      font-weight: 600;
+      background-color: rgb(238, 234, 231);
+    }
+  }
 }
