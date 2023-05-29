@@ -27,7 +27,7 @@ function Msg(props) {
         <td className="msg">
           <div className="message">{props.message}</div>
         </td>
-        <td>
+        <td className="updateSection">
           <button className="update">
             <Link
               to={`/hr/update/${props.id}`}
@@ -37,7 +37,7 @@ function Msg(props) {
             </Link>
           </button>
         </td>
-        <td>
+        <td className="deleteSection">
           <button className="delete" onClick={() => handleDelete(props.id)}>
             DELETE
           </button>

@@ -3,7 +3,7 @@
     background-color: white;
     .hrwrapper {
       margin: 18px;
-      background-color: #ffffff;
+      background-color: rgb(247, 246, 244) !important;
       color: red;
       width: 80vw;
       min-height: 88vh;
@@ -13,7 +13,7 @@
         position: absolute;
         bottom: 5%;
         right: 5%;
-        background-color: rgb(247, 247, 247);
+        background-color: rgb(255, 255, 255);
         box-shadow: 0.5px 0.5px 0.5px 0.5px #505050;
         border: none;
         color: rgb(84, 84, 84);
@@ -23,7 +23,6 @@
         display: inline-block;
         font-size: 16px;
         cursor: pointer;
-        
 
         &:hover {
           background-color: #a49eb1;
@@ -32,13 +31,13 @@
 
       .title {
         height: 40px;
-        background-color:  rgb(238, 234, 231); //                #ffffff;
+        background-color: rgb(238, 234, 231); //                #ffffff;
         border-radius: 2px 2px 2px 2px;
         margin-top: 10px;
         padding-top: 10px;
         text-align: center;
         box-shadow: 1px 1px 1px 1px #999;
-        margin-bottom: 15px;
+        margin-bottom: 7px;
         font-weight: 700;
         text-decoration: none;
         font-size: 20px;
@@ -54,6 +53,24 @@
         position: relative;
         display: block !important;
         background-color: rgb(255, 255, 255);
+
+
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #f2f2f2;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #888888;
+          border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: #555555;
+        }
       }
     }
   }

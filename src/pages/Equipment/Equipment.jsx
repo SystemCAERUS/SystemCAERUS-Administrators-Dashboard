@@ -14,7 +14,7 @@ function Equipment() {
   const [repairParts, setRepairParts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  //function to create labels and data
+  //function to create labels and data arrays
   function chartdataFiltering() {
     const uniqueDepartmentNames = [
       ...new Set(
@@ -64,7 +64,7 @@ function Equipment() {
             <div className="sparetitle">Parts Under Reapair</div>
             <div
               className="partscontent"
-              style={{ overflowY: "auto", maxHeight: "60vh" }}
+              style={{ overflowY: "auto", maxHeight: "90%" }}
             >
               <div className="tableHeader">
                 <tr>

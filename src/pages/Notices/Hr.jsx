@@ -7,13 +7,12 @@ import "../Dashboard/home.scss";
 import { Link } from "react-router-dom";
 import "./hr.scss";
 
-
 function Hr() {
   const [notification, setNotification] = useState([]);
   useEffect(() => {
     const fetchedMsges = async () => {
       try {
-          const res = await axios.get("http://localhost:8800/hr");
+        const res = await axios.get("http://localhost:8800/hr");
         /*const res = await fetchNotifications();*/
         setNotification(res.data);
       } catch (err) {
@@ -32,7 +31,10 @@ function Hr() {
           <div className="title">
             <span className="notification">Notice Board</span>
           </div>
-          <div className="content" style={{ overflowY: "auto", maxHeight: "70vh" }}>
+          <div
+            className="content"
+            style={{ overflowY: "auto", maxHeight: "71vh" }}
+          >
             {notification.map((msg) => (
               <MsgBox
                 message={msg.notification}
