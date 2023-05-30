@@ -1,0 +1,153 @@
+.contentplanned {
+  color: #cb2222;
+  padding: 30px;
+  display: flex;
+
+  .plannedworks {
+    width: 50%;
+    background-color: rgb(247, 246, 244);
+    height: 85vh;
+    box-shadow: 0.5px 0.5px #c9c9c9;
+
+    .plannedtitle {
+      text-align: center;
+      height: 30px;
+      padding: 5px;
+      background-color: rgb(238, 234, 231);
+      color: #6c6c6c;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      justify-content: center;
+    }
+
+    .plannedpartscontent {
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #f2f2f2;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #888888;
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #555555;
+      }
+
+      .noparts {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+        margin-top: 100px;
+        font-size: 25px;
+        color: #bdbdbd;
+        font-weight: 700;
+      }
+      .plannedtableHeader {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+        padding-top: 2px;
+      }
+
+      .planneddateH,
+      .plannedTask,
+      .plannedMachine,
+      .plannedDepartment {
+        text-align: center;
+        border-top: 0.5px solid rgb(66, 66, 66);
+        border-right: 0.1px solid rgb(202, 202, 202);
+        border-bottom: 0.1px solid rgb(66, 66, 66);
+        color: rgb(72, 72, 72);
+        font-weight: 300;
+        padding: 8px;
+      }
+
+      .plannedTask {
+        width: 50%;
+        background-color: rgb(246, 243, 241);
+      }
+
+      .planneddateH {
+        width: 20%;
+        background-color: rgb(246, 243, 241);
+      }
+
+      .plannedMachine {
+        width: 15%;
+        background-color: rgb(246, 243, 241);
+      }
+
+      .plannedDepartment {
+        width: 15%;
+        background-color: rgb(246, 243, 241);
+      }
+    }
+  }
+
+  .plannedAnalyticsManage {
+    margin-left: 30px;
+    background-color: rgb(247, 246, 244);
+    width: 50%;
+    box-shadow: 0.5px 0.5px #c9c9c9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .manageTitleContainer {
+      flex-grow: 1;
+      position: relative;
+
+      .manageTitle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 5px;
+        text-align: center;
+        height: 50px;
+        color: #6c6c6c;
+        font-weight: 600;
+        background-color: rgb(238, 234, 231);
+        box-shadow: 0.5px 0.5px #c9c9c9;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+
+        &:hover {
+          background-color: #c0afe6;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .plannedGraphTitle {
+      padding: 5px;
+      text-align: center;
+      height: 20px;
+      color: #6c6c6c;
+      font-weight: 600;
+      background-color: rgb(238, 234, 231);
+      box-shadow: 0.5px 0.5px #c9c9c9;
+    }
+
+    .plannedGraph {
+      margin-top: 50px;
+      display: flex;
+      height: 66vh;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

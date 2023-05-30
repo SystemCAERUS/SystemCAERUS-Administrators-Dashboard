@@ -4,6 +4,7 @@
   .issuestable {
     height: 60vh;
     background-color: rgb(247, 246, 244);
+    box-shadow: 0.5px 0.5px #dbdbdb;
   }
 
   .lineChartManage {
@@ -14,6 +15,7 @@
       width: 80%;
       background-color: rgb(247, 246, 244);
       height: 16vh;
+      box-shadow: 0.5px 0.5px #dbdbdb;
     }
 
     .manageIssues {
@@ -25,13 +27,13 @@
       cursor: pointer;
       justify-content: center;
       font-size: 18px;
-      color: rgb(174, 174, 174);
+      color: rgb(143, 143, 143);
       font-weight: 700;
       box-shadow: 0.5px 0.5px #dbdbdb;
 
       &:hover {
         background-color: #92ffb3;
-        color: rgb(146, 146, 146);
+        color: rgb(76, 76, 76);
       }
     }
   }
