@@ -30,10 +30,15 @@ function Hr() {
         <div className="hrwrapper">
           <div className="title">
             <span className="notification">Notice Board</span>
+            <div className="btn">
+              <Link to="/hr/add" style={{ textDecoration: "none" }}>
+                <button className="btnelement" >Add New</button>
+              </Link>
+            </div>
           </div>
           <div
             className="content"
-            style={{ overflowY: "auto", maxHeight: "71vh" }}
+            style={{ overflowY: "auto", maxHeight: "80vh" }}
           >
             {notification.map((msg) => (
               <MsgBox
@@ -43,11 +48,6 @@ function Hr() {
                 key={msg.id}
               />
             ))}
-          </div>
-          <div>
-            <Link to="/hr/add" style={{ textDecoration: "none" }}>
-              <button className="btn">Add New</button>
-            </Link>
           </div>
         </div>
       </div>

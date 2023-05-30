@@ -8,7 +8,7 @@
       width: 80vw;
       min-height: 88vh;
       box-shadow: 0.75px 0.75px 1px 1px #c0c0c0;
-
+      /*
       .btn {
         position: absolute;
         bottom: 5%;
@@ -27,7 +27,7 @@
         &:hover {
           background-color: #a49eb1;
         }
-      }
+      }*/
 
       .title {
         height: 40px;
@@ -41,11 +41,34 @@
         font-weight: 700;
         text-decoration: none;
         font-size: 20px;
+        display: flex;
 
         .notification {
           margin: auto;
           display: block;
           color: #848484;
+        }
+
+        .btn {
+          width: 100px;
+
+          .btnelement {
+            width: 80px;
+            height: 30px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0.5px 0.5px 0.5px 0.5px #505050;
+            border: none;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #a49eb1;
+            }
+          }
         }
       }
 
@@ -53,7 +76,6 @@
         position: relative;
         display: block !important;
         background-color: rgb(255, 255, 255);
-
 
         &::-webkit-scrollbar {
           width: 4px;
