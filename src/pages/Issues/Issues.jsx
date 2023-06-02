@@ -3,6 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import "../Dashboard/home.scss";
 import Navbar from "../../components/navbar/Navbar";
 import "./issues.scss"
+import Predict from "./Predict";
 
 function Issues() {
   return (
@@ -11,7 +12,7 @@ function Issues() {
       <div className="homeContainer">
         <Navbar />
         <div className="contentIssues" style={{ overflowY: "auto", maxHeight: "80%" }}>
-          <div className="issuestable">Issues</div>
+          <div className="issuestable"><Predict/></div>
           <div className="lineChartManage">
             <div className="lineChart">line chart</div>
             <div className="manageIssues">Manage Issues</div>
