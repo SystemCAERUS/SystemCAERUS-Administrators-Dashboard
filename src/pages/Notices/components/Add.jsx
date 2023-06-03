@@ -36,7 +36,7 @@ function Add() {
         <Navbar />
         <div className="hrwrapper">
           <div className="form">
-            <h1 className="title">Add New Notice</h1>
+            <h1 className="addTitle">Add New Notice</h1>
             <input
               className="notification"
               type="text"

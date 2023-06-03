@@ -13,7 +13,10 @@
         .form{
           text-align: center;
 
-          .title{
+          .addTitle{
+            background-color: rgb(238, 234, 231); // 
+            box-shadow: 1px 1px 1px 1px #adadad;
+            padding: 8px;
             font-size: 24px;
             font-weight: 800;
             color: rgb(142, 142, 142);

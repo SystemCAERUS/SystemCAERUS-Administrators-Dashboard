@@ -15,8 +15,9 @@ function Predict() {
     };
 
     try {
-      const response = await axios.post("/predict", requestData);
+      const response = await axios.post("http://127.0.0.1:5000/predict", requestData);
       setPredictedRepairer(response.data.predicted_repairer);
+      console.log(response)
     } catch (error) {
       console.error("Error:", error);
     }
