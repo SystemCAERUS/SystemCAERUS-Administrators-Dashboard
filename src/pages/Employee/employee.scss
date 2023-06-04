@@ -37,6 +37,7 @@
         padding-top: 10px;
         text-align: center;
         box-shadow: 1px 1px 1px 1px #999;
+        justify-content: center;
         margin-bottom: 7px;
         font-weight: 700;
         text-decoration: none;
@@ -77,6 +78,75 @@
         position: relative;
         display: block !important;
         background-color: rgb(255, 255, 255);
+
+        .tr {
+          width: 100%;
+          background-color: rgb(245, 242, 240);
+          height: 40px !important;
+          display: block !important;
+
+          td {
+            width: 100%;
+            vertical-align: middle;
+            padding: 5px;
+            padding-top: 10px;
+          }
+
+          .userID {
+            width: 5%;
+            padding-left: 15px;
+            font-weight: 900;
+            color: black;
+            border-right: 1px solid black;
+          }
+
+          .date {
+            width: 10%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-weight: 900;
+            border-right: 1px solid black;
+            color: black;
+          }
+
+          .email {
+            width: 30%;
+            border-right: 1px solid black;
+            align-items: center;
+            text-align: center;
+            color: black;
+            justify-content: center;
+            font-weight: 800;
+          }
+
+          .msg {
+            width: 30%;
+            border-right: 1px solid black;
+            align-items: center;
+            font-weight: 900;
+            text-align: center;
+            color: black;
+          }
+
+          .position {
+            width: 10vw;
+            text-align: center;
+            font-weight: 800;
+            color: black;
+            border-right: 1px solid black;
+            justify-content: center;
+          }
+
+          .phone {
+            width: 10vw;
+            font-weight: 800;
+            border-right: 1px solid black;
+            text-align: center;
+            color: black;
+            justify-content: center;
+          }
+        }
 
         &::-webkit-scrollbar {
           width: 4px;

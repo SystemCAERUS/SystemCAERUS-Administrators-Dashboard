@@ -31,8 +31,8 @@ function Employee() {
           <div className="titleEmployee">
             <span className="notificationEmployee">Employees</span>
             <div className="btnEmployee">
-              <Link to="/hr/add" style={{ textDecoration: "none" }}>
-                <button className="btnelementEmployee" >Manage Employees</button>
+              <Link to="/employees/manage" style={{ textDecoration: "none" }}>
+                <button className="btnelementEmployee">Manage Employees</button>
               </Link>
             </div>
           </div>
@@ -40,12 +40,37 @@ function Employee() {
             className="contentEmployee"
             style={{ overflowY: "auto", maxHeight: "80vh" }}
           >
+            <div>
+              <tr className="tr">
+                <td className="userID">
+                  <div>ID</div>
+                </td>
+                <td className="date">
+                  <div>Profile</div>
+                </td>
+                <td className="msg">
+                  <div>Name </div>
+                </td>
+                <td className="position">
+                  <div>Title</div>
+                </td>
+                <td className="email">
+                  <div>Email</div>
+                </td>
+                <td className="phone">
+                  <div>Phone</div>
+                </td>
+              </tr>
+            </div>
             {notification.map((msg) => (
               <EmployeeBox
+                userid={msg.userid}
                 name={msg.name}
                 imageURL={msg.imageURL}
                 phone={msg.phone}
+                position={msg.positionName}
                 key={msg.userid}
+                email={msg.email}
               />
             ))}
           </div>
