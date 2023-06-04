@@ -55,7 +55,7 @@
     }
 
     .msg {
-      width: 30%;
+      width: 20%;
       background-color:  rgb(242, 255, 255);
       align-items: center;
       border-right: none !important;
@@ -75,6 +75,16 @@
     .position {
       width: 10vw;
       background-color: rgb(255, 255, 255);
+      text-align: center;
+      font-weight: 500 !important;
+      border-right: none !important;
+      color: rgb(88, 88, 88) !important;
+      justify-content: center;
+    }
+
+    .experince{
+      width: 10vw;
+      background-color: rgb(255, 241, 229);
       text-align: center;
       font-weight: 500 !important;
       border-right: none !important;

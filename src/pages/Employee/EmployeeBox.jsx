@@ -17,6 +17,9 @@ function EmployeeBox(props) {
         <td className="position">
           <div>{props.position}</div>
         </td>
+        <td className="experince">
+          <div>16 Y</div>
+        </td>
         <td className="email">
           <div>{props.email}</div>
         </td>

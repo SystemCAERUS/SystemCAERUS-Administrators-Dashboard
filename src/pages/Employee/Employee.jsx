@@ -54,6 +54,9 @@ function Employee() {
                 <td className="position">
                   <div>Title</div>
                 </td>
+                <td className="experince">
+                  <div>Experince</div>
+                </td>
                 <td className="email">
                   <div>Email</div>
                 </td>

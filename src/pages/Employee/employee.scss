@@ -37,7 +37,7 @@
         padding-top: 10px;
         text-align: center;
         box-shadow: 1px 1px 1px 1px #999;
-        justify-content: center;
+              justify-content: center;
         margin-bottom: 7px;
         font-weight: 700;
         text-decoration: none;
@@ -121,7 +121,7 @@
           }
 
           .msg {
-            width: 30%;
+            width: 20%;
             border-right: 1px solid black;
             align-items: center;
             font-weight: 900;
@@ -130,7 +130,7 @@
           }
 
           .position {
-            width: 10vw;
+            width: 8vw;
             text-align: center;
             font-weight: 800;
             color: black;
@@ -138,8 +138,17 @@
             justify-content: center;
           }
 
+          .experince{
+            width: 8vw;
+            text-align: center;
+            font-weight: 800 ;
+            color: black;
+            border-right: 1px solid black;
+            justify-content: center;
+          }
+
           .phone {
-            width: 10vw;
+            width: 9vw;
             font-weight: 800;
             border-right: 1px solid black;
             text-align: center;
