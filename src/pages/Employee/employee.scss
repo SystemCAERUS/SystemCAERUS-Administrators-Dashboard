@@ -98,6 +98,7 @@
             font-weight: 900;
             color: black;
             border-right: 1px solid black;
+            border-bottom: 1px solid black;
           }
 
           .date {
@@ -107,17 +108,20 @@
             justify-content: center;
             font-weight: 900;
             border-right: 1px solid black;
+            border-bottom: 1px solid black;
             color: black;
           }
 
           .email {
-            width: 30%;
+            width: 25vw;
             border-right: 1px solid black;
             align-items: center;
             text-align: center;
+            border-bottom: 1px solid black;
             color: black;
             justify-content: center;
             font-weight: 800;
+            border-bottom: 1px solid black;
           }
 
           .msg {
@@ -126,6 +130,7 @@
             align-items: center;
             font-weight: 900;
             text-align: center;
+            border-bottom: 1px solid black;
             color: black;
           }
 
@@ -133,6 +138,7 @@
             width: 8vw;
             text-align: center;
             font-weight: 800;
+            border-bottom: 1px solid black;
             color: black;
             border-right: 1px solid black;
             justify-content: center;
@@ -142,6 +148,7 @@
             width: 8vw;
             text-align: center;
             font-weight: 800 ;
+            border-bottom: 1px solid black;
             color: black;
             border-right: 1px solid black;
             justify-content: center;
@@ -153,6 +160,7 @@
             border-right: 1px solid black;
             text-align: center;
             color: black;
+            border-bottom: 1px solid black;
             justify-content: center;
           }
         }
