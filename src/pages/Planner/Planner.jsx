@@ -6,8 +6,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./planner.scss";
 import PlannerMsg from "./components/PlannerMsg";
+import RadarChart from "./PlannerChart"
 
 function Planner() {
+  const radarLabels = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"];
+  const radarData = [1, 2, 3, 4, 5];
+
   const [todo, setTodo] = useState([]);
   useEffect(() => {
     const fetchedTodos = async () => {
@@ -66,7 +70,7 @@ function Planner() {
                 Planned Tasks By Department
               </div>
               <div className="plannedGraph">
-                graph
+              <RadarChart labels={radarLabels} data={radarData} />
               </div>
             </div>
             <div className="manageTitleContainer">
