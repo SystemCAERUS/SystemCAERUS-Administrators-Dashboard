@@ -18,7 +18,7 @@ function EmployeeBox(props) {
           <div>{props.position}</div>
         </td>
         <td className="experince">
-          <div>16 Y</div>
+          <div>16 Years</div>
         </td>
         <td className="email">
           <div>{props.email}</div>

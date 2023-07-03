@@ -1,0 +1,36 @@
+.planner-container {
+    display: table;
+    width: 100%;
+  }
+  
+  .dueDate,
+  .todoMsg,
+  .todoMachineName,
+  .todoDepartmentName {
+    text-align: center;
+    border-bottom: 0.1px solid rgb(219, 219, 219);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: rgb(82, 82, 82);
+  }
+  
+  .dueDate {
+    width: 20%;
+    background-color: rgb(254, 255, 236);
+  }
+  
+  .todoMsg {
+    width: 50%;
+    background-color: rgb(242, 255, 255);
+  }
+  
+  .todoMachineName {
+    width: 15%;
+    background-color: rgb(255, 246, 255);
+  }
+  
+  .todoDepartmentName {
+    width: 15%;
+    background-color: rgb(252, 209, 255);
+  }
+  

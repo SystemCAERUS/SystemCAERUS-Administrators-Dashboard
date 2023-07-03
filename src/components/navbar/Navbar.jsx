@@ -32,7 +32,7 @@ function Navbar() {
           
         ) : (<p></p>)}
       {/*<li>{state.username}</li>*/}
-      <img src="https://media.licdn.com/dms/image/D5603AQEft-FC8YiO8Q/profile-displayphoto-shrink_800_800/0/1672297319886?e=1687996800&v=beta&t=T3cb3lqqo4D9qIkPE27ayUrycudMI5iCEJYuVDnCwdw" alt="Avatar" class="avatar"></img>
+      <img src="https://th.bing.com/th/id/OIP.w2McZSq-EYWxh02iSvC3xwHaHa?pid=ImgDet&rs=1" alt="Avatar" class="avatar"></img>
     </div>
   )
 }

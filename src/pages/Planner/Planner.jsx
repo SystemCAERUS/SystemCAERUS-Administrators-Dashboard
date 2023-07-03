@@ -5,8 +5,23 @@ import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./planner.scss";
+import PlannerMsg from "./components/PlannerMsg";
 
 function Planner() {
+  const [todo, setTodo] = useState([]);
+  useEffect(() => {
+    const fetchedTodos = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/planner");
+        /*const res = await fetchNotifications();*/
+        setTodo(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchedTodos();
+  }, []);
+
   return (
     <div className="home">
       <Sidebar />
@@ -28,23 +43,21 @@ function Planner() {
                 </tr>
               </div>
 
-              {/*repairParts.length === 0 ? (
-                <p className="noparts">No Parts Under Repair</p>
+              {todo.length === 0 ? (
+                <p className="noparts">No Todo Works</p>
               ) : (
-                repairParts.map((item) =>
+                todo.map((item) =>
                   item.status === 1 ? (
-                    <EquipmentBox
-                      dpartmentName={item.departmentname}
-                      givendate={item.givendate}
-                      id={item.repairid}
-                      returndate={item.returndate}
-                      partName={item.partname}
-                      recieveDate={item.returndate}
-                      machineName={item.machinename}
+                    <PlannerMsg
+                    id={item.todoID}
+                    dueDate={item.date}
+                    todoMsg={item.msg}
+                    todoMachineName={item.machinename}
+                    todoDepartmentName={item.departmentname}
                     />
                   ) : null
                 )
-                  )*/}
+                  )}
             </div>
           </div>
           <div className="plannedAnalyticsManage">
@@ -69,3 +82,5 @@ function Planner() {
 }
 
 export default Planner;
+
+
