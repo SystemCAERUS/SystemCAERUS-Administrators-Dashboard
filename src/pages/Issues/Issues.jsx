@@ -4,6 +4,7 @@ import "../Dashboard/home.scss";
 import Navbar from "../../components/navbar/Navbar";
 import "./issues.scss"
 import Predict from "./Predict";
+import LineChart from "./components/LineChart";
 
 function Issues() {
   return (
@@ -14,7 +15,9 @@ function Issues() {
         <div className="contentIssues" style={{ overflowY: "auto", maxHeight: "80%" }}>
           <div className="issuestable"><Predict/></div>
           <div className="lineChartManage">
-            <div className="lineChart">line chart</div>
+            <div className="lineChart">
+              <LineChart/>
+            </div>
             <div className="manageIssues">Manage Issues</div>
           </div>
         </div>
