@@ -2,6 +2,11 @@
     display: table;
     width: 100%;
   }
+
+  .issueMsg.issuePrio-1 {
+    color: rgb(242, 57, 57);
+  }
+  
   
   .issueID,
   .issueMsg,
@@ -19,6 +24,7 @@
   .issueID {
     width: 10%;
     background-color: rgb(254, 255, 236);
+    font-weight: 600;
   }
   
   .issueMsg {
@@ -32,15 +38,15 @@
   
   .issueDepartmentName {
     width: 15%;
-    background-color: rgb(255, 213, 213);
+    background-color: rgb(255, 228, 213);
   }
   
   .issueExpData {
     width: 15%;
-    background-color: rgb(215, 157, 215);
+    background-color: rgb(255, 214, 255);
   }
   
   .issuePrio {
     width: 10%;
-    background-color: rgb(255, 213, 213);
+    background-color: rgb(214, 255, 213);
   }

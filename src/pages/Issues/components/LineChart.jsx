@@ -1,14 +1,14 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 
-const LineChart = () => {
+const LineChart = ({ labels, data }) => {
   // Sample data for the line chart
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','Aug'],
+  const chartData = {
+    labels: labels,
     datasets: [
       {
         label: 'Current Breakdowns by Department',
-        data: [12, 19, 3, 5, 2, 3, 10,13],
+        data: data,
         borderColor: 'rgb(219, 0, 91)',
         backgroundColor: 'rgb(255, 234, 221)',
         borderWidth: 2,
@@ -34,7 +34,7 @@ const LineChart = () => {
     },
   };
 
-  return <Line data={data} options={options} />;
+  return <Line data={chartData} options={options} />;
 };
 
 export default LineChart;

@@ -8,19 +8,48 @@ import React, { useEffect, useState } from "react";
 import IssueMsg from "./components/IssueMsg"
 
 function Issues() {
-
+  const [data, setData] = useState([]);
+  const [departments, setDepartment] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [breakdowns, setTodo] = useState([]);
+
+  function chartdataFiltering() {
+    const uniqueDepartmentNames = [
+      ...new Set(
+        breakdowns
+          .filter((item) => item.status === 1)
+          .map((item) => item.departmentname)
+      ),
+    ];
+    setDepartment(uniqueDepartmentNames);
+
+    const departmentCount = uniqueDepartmentNames.map((departmentName) => {
+      const count = breakdowns.filter(
+        (item) => item.departmentname === departmentName && item.status === 1
+      ).length;
+      return count;
+    });
+    setData(departmentCount);
+  }
+
   useEffect(() => {
     const fetchedTodos = async () => {
       try {
         const res = await axios.get("http://localhost:8800/issues");
         setTodo(res.data);
+        setIsLoading(false);
       } catch (err) {
         console.log(err);
       }
     };
     fetchedTodos();
   }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      chartdataFiltering();
+    }
+  }, [isLoading]);
 
   return (
     <div className="home">
@@ -70,7 +99,7 @@ function Issues() {
           </div>
           <div className="lineChartManage">
             <div className="lineChart">
-              <LineChart />
+              <LineChart labels={departments} data={data} />
             </div>
             <div className="manageIssues">Manage Issues</div>
           </div>
