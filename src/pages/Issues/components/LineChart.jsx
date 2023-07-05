@@ -7,7 +7,7 @@ const LineChart = () => {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','Aug'],
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Current Breakdowns by Department',
         data: [12, 19, 3, 5, 2, 3, 10,13],
         borderColor: 'rgb(219, 0, 91)',
         backgroundColor: 'rgb(255, 234, 221)',

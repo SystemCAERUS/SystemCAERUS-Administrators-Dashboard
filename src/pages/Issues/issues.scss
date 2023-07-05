@@ -5,6 +5,95 @@
     height: 60vh;
     background-color: rgb(247, 246, 244);
     box-shadow: 0.5px 0.5px #dbdbdb;
+
+    .issueParts{
+
+      .issueTitle{
+        text-align: center;
+        height: 30px;
+        padding: 5px;
+        background-color: rgb(238, 234, 231);
+        color: #6c6c6c;
+        font-weight: 800;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+      }
+
+      .issuePartsContent {
+        overflow-x: hidden;
+  
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+  
+        &::-webkit-scrollbar-track {
+          background-color: #f2f2f2;
+        }
+  
+        &::-webkit-scrollbar-thumb {
+          background-color: #888888;
+          border-radius: 4px;
+        }
+  
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: #555555;
+        }
+        .plannedtableHeader {
+          display: table;
+          width: 100%;
+          border-collapse: collapse;
+          padding-top: 2px;
+        }
+  
+        .issueDate,
+        .issueDes,
+        .issueMachine,
+        .issueExp,
+        .issueP,
+        .issueDepartment {
+          text-align: center;
+          border-top: 0.5px solid rgb(66, 66, 66);
+          border-right: 0.1px solid rgb(202, 202, 202);
+          border-bottom: 0.1px solid rgb(66, 66, 66);
+          color: rgb(72, 72, 72);
+          font-weight: 300;
+          padding: 8px;
+        }
+  
+        .issueDate{
+          width: 10%;
+          background-color: rgb(246, 243, 241);
+        }
+
+        .issueDes{
+          width: 41%;
+          background-color: rgb(246, 243, 241);
+        }
+
+        .issueMachine{
+          width: 15%;
+          background-color: rgb(246, 243, 241);
+        }
+
+        .issueDepartment{
+          width: 15%;
+          background-color: rgb(246, 243, 241);
+        }
+
+        .issueExp{
+          width: 15%;
+          background-color: rgb(246, 243, 241);
+        }
+
+        .issueP{
+          width: 5%;
+          background-color: rgb(246, 243, 241);
+        }
+      }
+    }
   }
 
   .lineChartManage {
