@@ -13,6 +13,7 @@ import Chat from "./pages/Chat/Chat";
 import Map from "./pages/Map/Map";
 import Employee from "./pages/Employee/Employee";
 import Equipment from "./pages/Equipment/Equipment";
+import ManageIssues from "./pages/Issues/manage/Manage"
 
 function App() {
   const { state, signIn } = useAuthContext();
@@ -53,6 +54,9 @@ function App() {
             </Route>
             <Route exact path="/issues">
               <Issues />
+            </Route>
+            <Route exact path="/issues/manage">
+              <ManageIssues/>
             </Route>
             <Route exact path="/map">
               <Map />

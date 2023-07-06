@@ -107,9 +107,12 @@
       box-shadow: 0.5px 0.5px #dbdbdb;
     }
 
-    .manageIssues {
+    .manageIssuesContainer {
       margin-left: 30px;
       width: 20%;
+    }
+    
+    .manageIssuesWrapper {
       background-color: rgb(247, 246, 244);
       display: flex;
       align-items: center;
@@ -119,11 +122,13 @@
       color: rgb(143, 143, 143);
       font-weight: 700;
       box-shadow: 0.5px 0.5px #dbdbdb;
-
-      &:hover {
-        background-color: #92ffb3;
-        color: rgb(76, 76, 76);
-      }
+      height: 16vh;
     }
+    
+    .manageIssuesWrapper:hover {
+      background-color: #92ffb3;
+      color: rgb(76, 76, 76);
+    }
+    
   }
 }

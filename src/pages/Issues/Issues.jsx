@@ -5,7 +5,9 @@ import "./issues.scss";
 import LineChart from "./components/LineChart";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import IssueMsg from "./components/IssueMsg"
+import IssueMsg from "./components/IssueMsg";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Issues() {
   const [data, setData] = useState([]);
@@ -101,7 +103,26 @@ function Issues() {
             <div className="lineChart">
               <LineChart labels={departments} data={data} />
             </div>
-            <div className="manageIssues">Manage Issues</div>
+            {/*
+            <div className="manageIssuesContainer">
+              <Link
+                to={"/issues/manage"}
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <div className="manageIssues">Manage Issues</div>
+              </Link>
+            </div>
+            {/*<div className="manageIssues"><Link to={"/hr/add"} style={{ color: "inherit", textDecoration: "none" }}>Manage Issues</Link></div>*/}
+            <div className="manageIssuesContainer">
+              <Link
+                to="/issues/manage"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <div className="manageIssuesWrapper">
+                  <div className="manageIssues">Manage Issues</div>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
