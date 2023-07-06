@@ -11,7 +11,7 @@ function Issues() {
   const [data, setData] = useState([]);
   const [departments, setDepartment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [breakdowns, setTodo] = useState([]);
+  const [breakdowns, setBreakdowns] = useState([]);
 
   function chartdataFiltering() {
     const uniqueDepartmentNames = [
@@ -33,16 +33,16 @@ function Issues() {
   }
 
   useEffect(() => {
-    const fetchedTodos = async () => {
+    const fetchedIssues = async () => {
       try {
         const res = await axios.get("http://localhost:8800/issues");
-        setTodo(res.data);
+        setBreakdowns(res.data);
         setIsLoading(false);
       } catch (err) {
         console.log(err);
       }
     };
-    fetchedTodos();
+    fetchedIssues();
   }, []);
 
   useEffect(() => {

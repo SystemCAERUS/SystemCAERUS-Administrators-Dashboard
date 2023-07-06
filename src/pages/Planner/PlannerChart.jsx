@@ -14,7 +14,7 @@ function RadarChart({ labels, data }) {
     labels: labels,
     datasets: [
       {
-        label: "Todos by Department",
+        label: "Planned Maintainance by Department",
         data: data,
         backgroundColor: "rgb(245, 209, 232)",
         borderColor: "rgb(154, 32, 140)",

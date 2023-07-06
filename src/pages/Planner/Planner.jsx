@@ -9,7 +9,52 @@ import PlannerMsg from "./components/PlannerMsg";
 import RadarChart from "./PlannerChart"
 
 function Planner() {
-  const radarLabels = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"];
+
+  const [data, setData] = useState([]);
+  const [departments, setDepartment] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [todos, setTodos] = useState([]);
+
+  function chartdataFiltering() {
+    const uniqueDepartmentNames = [
+      ...new Set(
+        todos
+          .filter((item) => item.status === 1)
+          .map((item) => item.departmentname)
+      ),
+    ];
+    setDepartment(uniqueDepartmentNames);
+
+    const departmentCount = uniqueDepartmentNames.map((departmentName) => {
+      const count = todos.filter(
+        (item) => item.departmentname === departmentName && item.status === 1
+      ).length;
+      return count;
+    });
+    setData(departmentCount);
+  }
+
+  useEffect(() => {
+    const fetchedIssues = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/planner");
+        setTodos(res.data);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchedIssues();
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      chartdataFiltering();
+    }
+  }, [isLoading]);
+
+
+ /* const radarLabels = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5"];
   const radarData = [1, 2, 3, 4, 5];
 
   const [todo, setTodo] = useState([]);
@@ -17,14 +62,14 @@ function Planner() {
     const fetchedTodos = async () => {
       try {
         const res = await axios.get("http://localhost:8800/planner");
-        /*const res = await fetchNotifications();*/
+        /*const res = await fetchNotifications();
         setTodo(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchedTodos();
-  }, []);
+  }, []);*/
 
   return (
     <div className="home">
@@ -47,10 +92,10 @@ function Planner() {
                 </tr>
               </div>
 
-              {todo.length === 0 ? (
+              {todos.length === 0 ? (
                 <p className="noparts">No Todo Works</p>
               ) : (
-                todo.map((item) =>
+                todos.map((item) =>
                   item.status === 1 ? (
                     <PlannerMsg
                     id={item.todoID}
@@ -70,7 +115,7 @@ function Planner() {
                 Planned Tasks By Department
               </div>
               <div className="plannedGraph">
-              <RadarChart labels={radarLabels} data={radarData} />
+              <RadarChart labels={departments} data={data} />
               </div>
             </div>
             <div className="manageTitleContainer">
