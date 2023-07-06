@@ -10,7 +10,7 @@ function Add() {
 
   const [notice, setNotice] = useState({
     notification: "",
-    desc:"",
+    desc: "",
     value: null,
     date: "",
   });
@@ -37,15 +37,17 @@ function Add() {
         <div className="hrwrapper">
           <div className="form">
             <h1 className="addTitle">Add New Notice</h1>
-            <input
-              className="notification"
-              type="text"
-              placeholder="notification"
-              onChange={handleChange}
-              name="notification"
-              required
-            />
-            <br/>
+            <div className="noticeTitle">
+              <label className="noticeLabel">Notice :</label>
+              <input
+                className="notification"
+                type="text"
+                onChange={handleChange}
+                name="notification"
+                required
+              />
+            </div>
+            <br />
             <input
               className="desc"
               type="text"
@@ -54,21 +56,21 @@ function Add() {
               name="desc"
               required
             />
-            <br/>
+            <br />
             <input
               type="number"
               placeholder="value"
               onChange={handleChange}
               name="value"
             />
-            <br/>
+            <br />
             <input
               type="date"
               placeholder="date"
               onChange={handleChange}
               name="date"
             />
-            <br/>
+            <br />
             <button onClick={handleClick}>Add Notice</button>
           </div>
         </div>
