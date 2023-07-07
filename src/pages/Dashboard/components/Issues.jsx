@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import './issues.scss'
+import axios from "axios";
 
 function Issues() {
+  const [breakdowns, setBreakdowns] = useState([]);
+
+  useEffect(() => {
+    const fetchedIssues = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/issues");
+        setBreakdowns(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchedIssues();
+  }, []);
+
+  const getItemsCount = () => {
+    const itemsWithStatus1 = breakdowns.filter((item) => item.status === 1);
+    return itemsWithStatus1.length;
+  };
+
   return (
     <div className='issues'>
-      <div className='title'><span>Current Issues</span></div>
       <div className='content'>
-        <div className='msg'></div>
-        <div className='msg'></div>
-        <div className='msg'></div>
-        <div className='msg'></div>
+      # {getItemsCount()} - ACTIVE BREAKDOWNS
       </div>
     </div>
   )
