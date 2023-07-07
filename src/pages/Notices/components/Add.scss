@@ -22,10 +22,13 @@
         }
 
         .noticeTitle {
-          margin-top: 30px;
+          margin-top: 60px;
+          display: flex;
+          justify-content: center;
           .noticeLabel {
-            color: #393939;
-            font-size: 18px;
+            color: #6f6d6d;
+            font-weight: 600;
+            font-size: 1.2rem;
             margin-right: 50px;
           }
 
@@ -33,9 +36,136 @@
             padding: 10px;
             width: 50vw;
             margin: 10px 0px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
           }
+
+          .notification::placeholder {
+            color: red;
+          }
+          
         }
       }
+
+      .noticeDesc {
+        display: flex;
+        justify-content: center;
+        .noticeDescLabel {
+          color: #6f6d6d;
+          font-weight: 600;
+          font-size: 1.2rem;
+          justify-content: center;
+          margin-right: 50px;
+          height: 20vh !important;
+        }
+
+        .input-field{
+          width: 50vw;
+          height: 20vh;
+          padding: 10px;
+          width: 50vw;
+          margin: 10px 0px;
+          font-size: 1rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+
+        .input-field::placeholder {
+          color: red;
+        }
+      }
+
+      .pikers{
+        display: flex;
+        justify-content: center;
+        margin-left: 50px;
+      
+
+      .dropdown {
+        width: 20%;
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #fff;
+      }
+      
+      /* Style the dropdown arrow */
+      .dropdown:after {
+        content: "";
+        position: absolute;
+        top: 14px;
+        right: 10px;
+        border-width: 6px 6px 0 6px;
+        border-style: solid;
+        border-color: #555 transparent;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      /* Change arrow direction when dropdown is open */
+      .dropdown.open:after {
+        transform: rotate(-180deg);
+      }
+      
+      /* Style the dropdown options */
+      .dropdown option {
+        padding: 8px;
+        font-size: 16px;
+        background-color: #fff;
+        color: #555;
+      }
+      
+      /* Style the dropdown when it is focused */
+      .dropdown:focus {
+        outline: none;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .issueDatePiker {
+        width: 20%;
+        padding: 8px;
+        margin-left: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #fff;
+      }
+      
+      .issueDatePiker::placeholder {
+        color: #999;
+      }
+      
+      .issueDatePiker:focus {
+        outline: none;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      }}
+      
+      .noticeAddButtonAddPage {
+        padding: 8px 16px;
+        margin-top: 50px;
+        width: 400px;
+        font-size: 16px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .noticeAddButtonAddPage:hover {
+        background-color: #3b8a3f;
+      }
+      
+      .noticeAddButtonAddPage:focus {
+        outline: none;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      
     }
   }
 }
