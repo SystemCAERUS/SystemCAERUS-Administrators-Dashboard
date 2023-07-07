@@ -4,7 +4,6 @@ import axios from "axios"
 
 function NoticesBox() {
  
-
       const [notices, setNotices] = useState([]);
 
       useEffect(() => {

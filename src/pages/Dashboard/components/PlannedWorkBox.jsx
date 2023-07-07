@@ -3,13 +3,13 @@ import "./issues.scss";
 import axios from "axios";
 
 function PlannedWorkBox() {
-  const [breakdowns, setBreakdowns] = useState([]);
+  const [plannedWorks, setPlannedWorks] = useState([]);
 
   useEffect(() => {
     const fetchedIssues = async () => {
       try {
         const res = await axios.get("http://localhost:8800/planner");
-        setBreakdowns(res.data);
+        setPlannedWorks(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -18,7 +18,7 @@ function PlannedWorkBox() {
   }, []);
 
   const getItemsCount = () => {
-    const itemsWithStatus1 = breakdowns.filter((item) => item.status === 1);
+    const itemsWithStatus1 = plannedWorks.filter((item) => item.status === 1);
     return itemsWithStatus1.length;
   };
 
