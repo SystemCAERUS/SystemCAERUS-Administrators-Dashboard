@@ -1,15 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import './issues.scss'
+import axios from "axios"
 
 function NoticesBox() {
-    const boxStyle = {
-        background:
-        "linear-gradient(to right,  rgb(255, 255, 243),  rgb(255, 255, 243))",
+ 
+
+      const [notices, setNotices] = useState([]);
+
+      useEffect(() => {
+        const fetchedIssues = async () => {
+          try {
+            const res = await axios.get("http://localhost:8800/hr");
+            setNotices(res.data);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchedIssues();
+      }, []);
+    
+      const getItemsCount = () => {
+        return notices.length;
       };
 
   return (
-    <div className='issues' style={boxStyle}>
+    <div className='issues' >
       <div className='content'>
-      # {/*getItemsCount()*/} - ACTIVE BREAKDOWNS
+      <p><span className="numberText" >#{getItemsCount()}</span>NOTICES FOR WORKERS</p>
       </div>
     </div>
   )

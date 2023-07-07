@@ -25,7 +25,7 @@ function Issues() {
   return (
     <div className='issues'>
       <div className='content'>
-      # {getItemsCount()} - ACTIVE BREAKDOWNS
+       <p><span className="numberText">#{getItemsCount()}</span>ACTIVE BREAKDOWNS</p>
       </div>
     </div>
   )

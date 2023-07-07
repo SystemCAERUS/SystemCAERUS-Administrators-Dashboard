@@ -61,11 +61,11 @@ const BarChart = ({ labels, data }) => {
     datasets: [
       {
         type: 'line',
-        label: 'Line Chart',
+        label: 'Line',
         data: data,
         fill: false,
-        borderColor: 'rgb(0, 0, 0)',
-        borderWidth: 2,
+        borderColor: 'rgb(50, 50, 50)',
+        borderWidth: 1,
         pointRadius: 0,
         order: 0, 
       },

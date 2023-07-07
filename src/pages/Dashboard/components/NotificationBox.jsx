@@ -9,7 +9,7 @@ function NotificationBox() {
   return (
     <div className='issues' style={boxStyle}>
       <div className='content'>
-      # {/*getItemsCount()*/} - ACTIVE BREAKDOWNS
+      SUMMARY (LAST 24H)
       </div>
     </div>
   )
