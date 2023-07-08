@@ -4,11 +4,12 @@ import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "../Dashboard/home.scss";
 import MachineBox from "./components/MachineBox";
-import './machine.scss'
+import "./machine.scss";
 
 function Machine() {
   const [machines, setMachines] = useState([]);
   const [selectedMachine, setSelectedMachine] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchMachines = async () => {
@@ -30,17 +31,30 @@ function Machine() {
     setSelectedMachine(null);
   };
 
+  const filteredMachines = machines.filter((machine) =>
+    machine.uniqueName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="home">
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
         <div className="hrwrapper">
+          <div className="searchBar">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="🔍 Search machine"
+            />
+            <div className="machineTopic">Machines</div>
+          </div>
           <div
             className="contentMachines"
-            style={{ overflowY: "auto", maxHeight: "85vh" }}
+            style={{ overflowY: "auto", maxHeight: "75vh" }}
           >
-            {machines.map((item) => (
+            {filteredMachines.map((item) => (
               <div key={item.id} onClick={() => openModal(item)}>
                 <MachineBox
                   image={item.image}
@@ -48,6 +62,7 @@ function Machine() {
                   department={item.departmentid}
                   description={item.departmentdes}
                   URL={item.image}
+                  uniqueName={item.uniqueName}
                 />
               </div>
             ))}
@@ -72,5 +87,3 @@ function Machine() {
 }
 
 export default Machine;
-
-
