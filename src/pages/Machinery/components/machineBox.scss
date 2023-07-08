@@ -1,0 +1,33 @@
+.machineBoxContent {
+  margin: 15px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 10px;
+  display: flex;
+  box-shadow: 1px 1px rgb(154, 154, 154);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(207, 212, 217);
+  }
+
+  .machineBoximage {
+    .machineImage {
+      width: 350px;
+      margin: 10px;
+      border-radius: 5px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .machineContent {
+    padding: 15px;
+
+    .machineBoxName {
+      font-size: 24px;
+      color: #666666;
+      font-weight: 700;
+    }
+  }
+}
