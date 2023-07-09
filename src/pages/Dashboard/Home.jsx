@@ -64,7 +64,7 @@ const Home = () => {
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
-        <div className="content">
+        <div className="content" style={{ paddingTop: '15px' }}>
           <Issues />
           <PlannedWorkBox/>
           <EquipmentFixBox/>

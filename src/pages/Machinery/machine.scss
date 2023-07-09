@@ -12,14 +12,31 @@
 }
 
 .modal {
-  background-color: #bcadad;
+  background-color: #ffffff;
   padding: 20px;
-  max-width: 1000px;
+  max-width: 700px;
   min-width: 600px;
-  max-height: 80vh;
+  max-height: 75vh;
   overflow-y: auto;
   border-radius: 5px;
   position: relative;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555555;
+  }
 }
 
 .close {
@@ -35,54 +52,89 @@
   }
 }
 
-
-
 .searchBar {
-    display: flex;
-    margin-left: 30px;
-    padding-top: 30px;
-    margin-bottom: 20px;
-    width: 50%;
+  display: flex;
+  margin-left: 30px;
+  padding-top: 30px;
+  margin-bottom: 20px;
+  width: 60%;
 
-    .machineTopic{
-      color: rgb(77, 77, 77);
-      font-size: 30px;
-      font-weight: bolder;
-      position: relative;
-      left: 50px;
-
-    }
+  .machineTopic {
+    color: rgb(118, 118, 118);
+    font-size: 30px;
+    font-weight: bolder;
+    position: relative;
+    left: 50px;
   }
-  
-  .searchBar input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+}
+
+.searchBar input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.searchBar input:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.contentMachines {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888888;
     border-radius: 4px;
   }
-  
-  .searchBar input:focus {
-    outline: none;
-    border-color: #6c63ff;
-    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
-  }
 
-  .contentMachines{
-
-    &::-webkit-scrollbar {
-        width: 4px;
-      }
-    
-      &::-webkit-scrollbar-track {
-        background-color: #f2f2f2;
-      }
-    
-      &::-webkit-scrollbar-thumb {
-        background-color: #888888;
-        border-radius: 4px;
-      }
-    
-      &::-webkit-scrollbar-thumb:hover {
-        background-color: #555555;
-      }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555555;
   }
+}
+
+.modelName {
+  color: rgb(70, 70, 70);
+  text-align: center;
+  padding: 10px;
+  font-size: 32px;
+}
+
+.modelImage {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 600px;
+  margin-bottom: 50px;
+}
+
+.departmentNameModel{
+  color: #555555;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.modelSmallDes{
+  width: 90%;
+  padding: 10px;
+  color: #555555;
+}
+
+.modelBigDes{
+  width: 90%;
+  padding: 10px;
+  color: #555555;
+}
+
+.machineBoxURL{
+  padding: 10px;
+}

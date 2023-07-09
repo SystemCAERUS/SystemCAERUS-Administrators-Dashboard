@@ -45,11 +45,12 @@ function Machine() {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value === "" ? "" : e.target.value)}
               placeholder="🔍 Search machine"
             />
-            <div className="machineTopic">Machines</div>
+            <div className="machineTopic">MACHINES BY DEPARTMENT</div>
           </div>
+          <hr />
           <div
             className="contentMachines"
             style={{ overflowY: "auto", maxHeight: "75vh" }}
@@ -59,8 +60,8 @@ function Machine() {
                 <MachineBox
                   image={item.image}
                   name={item.machinename}
-                  department={item.departmentid}
-                  description={item.departmentdes}
+                  department={item.departmentname}
+                  description={item.smallDes}
                   URL={item.image}
                   uniqueName={item.uniqueName}
                 />
@@ -75,10 +76,21 @@ function Machine() {
             <span className="close" onClick={closeModal}>
               &times;
             </span>
-            <h2>{selectedMachine.machinename}</h2>
-            <img src={selectedMachine.image} alt="" />
-            <p>{selectedMachine.description}</p>
-            <a href={selectedMachine.URL}>More details</a>
+            <h2 className="modelName">
+              {selectedMachine.machinename}{" "}
+              <span># {selectedMachine.uniqueName}</span>
+            </h2>
+            <hr />
+            <img className="modelImage" src={selectedMachine.image} alt="" />
+            <hr />
+            <h4 className="departmentNameModel">Department is {selectedMachine.departmentname}</h4>
+            <h4 className="modelSmallDes">{selectedMachine.smallDes}</h4>
+            <h4 className="modelBigDes">{selectedMachine.departmentdes}</h4>
+            <div className="machineBoxURL">
+              <a href={selectedMachine.URL} target="_blank">
+                <button>↗️ USER MANUAL</button>
+              </a>
+            </div>
           </div>
         </div>
       )}

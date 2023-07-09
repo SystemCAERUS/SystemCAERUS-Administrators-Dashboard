@@ -38,7 +38,7 @@ function Hr() {
           </div>
           <div
             className="content"
-            style={{ overflowY: "auto", maxHeight: "80vh" }}
+            style={{ overflowY: "auto", maxHeight: "78vh" }}
           >
             {notification.map((msg) => (
               <MsgBox
