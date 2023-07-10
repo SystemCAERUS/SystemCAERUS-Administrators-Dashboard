@@ -78,7 +78,7 @@ function Machine() {
             </span>
             <h2 className="modelName">
               {selectedMachine.machinename}{" "}
-              <span># {selectedMachine.uniqueName}</span>
+              <span className="subNameModel">#{selectedMachine.uniqueName}</span>
             </h2>
             <hr />
             <img className="modelImage" src={selectedMachine.image} alt="" />

@@ -9,7 +9,8 @@
   justify-content: center;
   text-align: center;
   display: flex;
-  box-shadow: 0.2px 0.2px 0.5px 0.5px rgb(16, 16, 16);
+  border: 1.5px solid rgb(118, 118, 118);
+ // box-shadow: 0.2px 0.2px 0.5px 0.5px rgb(16, 16, 16);
   cursor: pointer;
 
   &:hover{
