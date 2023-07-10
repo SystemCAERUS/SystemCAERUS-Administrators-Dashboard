@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import "./openIssue.scss";
 
 function OpenIssue() {
   const history = useHistory();
@@ -11,12 +12,16 @@ function OpenIssue() {
     issueTitle: "",
     issueDesc: "",
     priority: null,
+    departmentID: null,
+    machineID: null,
   });
 
   const [errors, setErrors] = useState({
     issueTitle: "",
     issueDesc: "",
     priority: "",
+    departmentID: "",
+    machineID: "",
   });
 
   function handleChange(e) {
@@ -65,8 +70,58 @@ function OpenIssue() {
       errors.priority = "Priority is missing";
     }
 
+    if (issues.departmentID === null) {
+      errors.priority = "Please select Department";
+    }
+
+    if (issues.machineID === null) {
+      errors.priority = "Please select Machine";
+    }
+
     return errors;
   }
+
+  //this deal with machines and department
+  const [machines, setMachines] = useState([]);
+  const [departments, setDepartments] = useState([]);
+
+  useEffect(() => {
+    const fetchMachines = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/departments");
+        setDepartments(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchMachines();
+  }, []);
+
+  //this deal with searching logic
+  const [filteredMachines, setFilteredMachines] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  function handleMachineSearch(searchTerm) {
+    const filtered = machines.filter(
+      (machine) =>
+        machine.machinename.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        machine.uniqueName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredMachines(filtered);
+  }
+
+  useEffect(() => {
+    const fetchMachines = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/machines");
+        setMachines(res.data);
+        setFilteredMachines(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchMachines();
+  }, []);
 
   return (
     <div className="home">
@@ -79,7 +134,7 @@ function OpenIssue() {
             <div className="IssuesTitle">
               <label className="IssuesLabel">
                 Please Enter the Breakdown Title :
-                <h6>කරුණාකර දැන්වීමේ මාතෘකාව මෙහි ඇතුළත් කරන්න</h6>
+                <h6>කරුණාකර බිඳවැටීම් මාතෘකාව මෙහි ඇතුළත් කරන්න</h6>
               </label>
               <input
                 className="issueTitle"
@@ -95,7 +150,7 @@ function OpenIssue() {
             <div className="IssuesDesc">
               <label className="IssuesDescLabel">
                 Please Enter the Description :
-                <h6>කරුණාකර දැනුම්දීමේ විස්තරය ඇතුළත් කරන්න</h6>
+                <h6>කරුණාකර විස්තරය ඇතුලත් කරන්න</h6>
               </label>
               <textarea
                 className="input-field"
@@ -108,20 +163,65 @@ function OpenIssue() {
               ></textarea>
             </div>
             <br />
-            <div className="pikers">
-              <select
-                className="dropdown"
-                onChange={handleChange}
-                name="priority"
-                value={issues.priority}
-              >
-                <option value="">Select Priority</option>
-                <option value={0}>Low Priority</option>
-                <option value={1}>Avg Priority</option>
-                <option value={2}>High Priority</option>
-              </select>
-              <br />
+            <div className="twoPickers">
+              <div className="pikers">
+                <select
+                  className="dropdown"
+                  onChange={handleChange}
+                  name="priority"
+                  value={issues.priority}
+                >
+                  <option value="">Select Priority</option>
+                  <option value={0}>Low Priority</option>
+                  <option value={1}>Avg Priority</option>
+                  <option value={2}>High Priority</option>
+                </select>
+                <br />
+              </div>
+              <div className="pikers">
+                <select
+                  id="departments"
+                  className="dropdown"
+                  value={issues.departmentID}
+                  onChange={handleChange}
+                  name="departmentID"
+                >
+                  <option value="">Select Department</option>
+                  {departments.map((department) => (
+                    <option key={department.id} value={department.id}>
+                      {department.departmentname}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="pikers" style={{ marginLeft: '100px' }}>
+                <input
+                  type="text"
+                  placeholder="Search machine..."
+                  value={searchTerm}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    handleMachineSearch(e.target.value);
+                  }}
+                />
+                <select
+                  id="departments"
+                  className="dropdown"
+                  value={issues.machineID}
+                  onChange={handleChange}
+                  name="machineID"
+                >
+                  <option value="">Select Machine</option>
+                  {filteredMachines.map((machine) => (
+                    <option key={machine.machineid} value={machine.machineid}>
+                      {machine.machinename} # {machine.uniqueName}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
+
             <br />
             <h4>
               {errors.value && <span className="error">{errors.value}</span>}
