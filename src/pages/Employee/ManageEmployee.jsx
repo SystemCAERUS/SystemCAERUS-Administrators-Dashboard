@@ -1,8 +1,7 @@
 import React from "react";
-import Sidebar from "../../../components/sidebar/Sidebar";
-import Navbar from "../../../components/navbar/Navbar";
-import "./manage.scss";
-import Logo from "../../../components/sidebar/logowilmar.png";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
+import Logo from "../../components/sidebar/logowilmar.png";
 import { Link } from "react-router-dom";
 
 function Manage() {
@@ -13,31 +12,31 @@ function Manage() {
         <Navbar />
         <div className="hrwrapper">
           <div className="titleEmployee">
-            <span className="notificationEmployee">Manage Breakdowns</span>
+            <span className="notificationEmployee">Manage Employees</span>
           </div>
           <div className="issueManageWrapper">
             <div className="manageFirstRow">
-              <Link to="/issues/manage/open" style={{ textDecoration: "none" }}>
-                <div className="openIssues">Open New Breakdown</div>
+              <Link to="/employees/manage/open" style={{ textDecoration: "none" }}>
+                <div className="openIssues">Add Employee</div>
               </Link>
               <Link
-                to="/issues/manage/close"
+                to="/employees/manage/close"
                 style={{ textDecoration: "none" }}
               >
-                <div className="closeIssues">Close Breakdown</div>
+                <div className="closeIssues">Remove Employee</div>
               </Link>
             </div>
             <div className="manageSecondRow">
               <Link
-                to="/issues/manage/update"
+                to="/employees/manage/update"
                 style={{ textDecoration: "none" }}
               >
                 <div className="updateManageIssues">
-                  Update Exsiting Breakdown
+                  Update Employee
                 </div>
               </Link>
               <Link
-                to="/issues/manage/report"
+                to="/employees/manage/report"
                 style={{ textDecoration: "none" }}
               >
                 <div className="reportGenerateIssues">Report Generation</div>

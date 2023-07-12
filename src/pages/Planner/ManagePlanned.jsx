@@ -5,7 +5,7 @@ import "./manage.scss";
 import Logo from "../../../components/sidebar/logowilmar.png";
 import { Link } from "react-router-dom";
 
-function Manage() {
+function ManagePlanned() {
   return (
     <div className="home">
       <Sidebar />
@@ -18,13 +18,13 @@ function Manage() {
           <div className="issueManageWrapper">
             <div className="manageFirstRow">
               <Link to="/issues/manage/open" style={{ textDecoration: "none" }}>
-                <div className="openIssues">Open New Breakdown</div>
+                <div className="openIssues">Open a New Breakdown</div>
               </Link>
               <Link
                 to="/issues/manage/close"
                 style={{ textDecoration: "none" }}
               >
-                <div className="closeIssues">Close Breakdown</div>
+                <div className="closeIssues">Close a Breakdown</div>
               </Link>
             </div>
             <div className="manageSecondRow">
@@ -60,4 +60,4 @@ function Manage() {
   );
 }
 
-export default Manage;
+export default ManagePlanned;

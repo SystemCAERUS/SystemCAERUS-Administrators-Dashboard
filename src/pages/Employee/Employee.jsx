@@ -8,13 +8,12 @@ import { Link } from "react-router-dom";
 import "./employee.scss";
 
 function Employee() {
-  const [notification, setNotification] = useState([]);
+  const [employees, setEmployees] = useState([]);
   useEffect(() => {
     const fetchedMsges = async () => {
       try {
         const res = await axios.get("http://localhost:8800/employees");
-        /*const res = await fetchNotifications();*/
-        setNotification(res.data);
+        setEmployees(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -65,7 +64,8 @@ function Employee() {
                 </td>
               </tr>
             </div>
-            {notification.map((msg) => (
+            {employees.map((msg) => (
+              msg.status === 1 ? (
               <EmployeeBox
                 userid={msg.userid}
                 name={msg.name}
@@ -75,6 +75,7 @@ function Employee() {
                 key={msg.userid}
                 email={msg.email}
               />
+              ):null
             ))}
           </div>
         </div>

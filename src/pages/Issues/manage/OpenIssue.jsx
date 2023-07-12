@@ -4,6 +4,7 @@ import Navbar from "../../../components/navbar/Navbar";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "./openIssue.scss";
+import Predict from "../Predict";
 
 function OpenIssue() {
   const history = useHistory();
@@ -226,6 +227,7 @@ function OpenIssue() {
             <h4>
               {errors.value && <span className="error">{errors.value}</span>}
             </h4>
+            <Predict/>
             <br />
             <button className="IssuesAddButtonAddPage" onClick={handleClick}>
               OPEN BREAKDOWN

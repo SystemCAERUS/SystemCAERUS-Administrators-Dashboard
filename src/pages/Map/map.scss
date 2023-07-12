@@ -1,0 +1,73 @@
+.mapContent {
+  display: flex;
+
+  .departmentTable {
+    width: 40vw;
+    margin: 50px;
+    background-color: rgb(228, 228, 228);
+    height: 73vh;
+    box-shadow: 1.5px 1.5px 0.5px 0.5px #dbdbdb;
+
+    .mapTitle{
+        background-color: rgb(207, 207, 207);
+        height: 30px;
+        text-align: center;
+        justify-content: center;
+        vertical-align: middle;
+        line-height: 30px;
+        color: rgb(112, 112, 112);
+        font-weight: 700;
+    }
+  }
+
+  .departmentSecondTable {
+    margin-top: 50px;
+
+    .manageDepartmentButton {
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      background-color: rgb(228, 228, 228);
+      height: 15vh;
+      color: rgb(148, 148, 148);
+      font-weight: 700;
+      font-size: 22px;
+      width: 30vw;
+      vertical-align: middle;
+      line-height: 15vh;
+      box-shadow: 1.5px 1.5px 0.5px 0.5px #dbdbdb;
+
+      &:hover{
+        background-color: rgb(255, 242, 179);
+        color: rgb(105, 105, 105);
+      }
+    }
+
+    .manageMachineButton {
+      color: rgb(148, 148, 148);
+      font-weight: 700;
+      font-size: 22px;
+      margin-top: 50px;
+      text-align: center;
+      display: flex;
+      background-color: rgb(228, 228, 228);
+      height: 15vh;
+      width: 30vw;
+      justify-content: center;
+      vertical-align: middle;
+      line-height: 15vh;
+      box-shadow: 1.5px 1.5px 0.5px 0.5px #dbdbdb;
+
+      &:hover{
+        background-color: rgb(255, 179, 179);
+        color: rgb(105, 105, 105);
+      }
+    }
+
+    .wilmarMapImage {
+      text-align: center;
+      justify-content: center;
+      margin-top: 75px;
+    }
+  }
+}

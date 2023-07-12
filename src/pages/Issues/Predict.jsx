@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./predict.scss"
 
 function Predict() {
   const [department, setDepartment] = useState("");
@@ -24,11 +25,11 @@ function Predict() {
   };
 
   return (
-    <div>
-      <h1>Repairer Prediction</h1>
+    <div className="AImodel">
       <form onSubmit={handleSubmit}>
+      <h1 className="AImodelTitle">Most Experienced Employee (AI)</h1>
         <div>
-          <label>Department:</label>
+          <label className="AImodelLabel">Department:</label>
           <input
             type="text"
             value={department}
@@ -36,7 +37,7 @@ function Predict() {
           />
         </div>
         <div>
-          <label>Machine:</label>
+          <label className="AImodelLabel">Machine:</label>
           <input
             type="text"
             value={machine}
@@ -45,12 +46,14 @@ function Predict() {
         </div>
         <button type="submit">Predict</button>
       </form>
+      <div className="predictedDetails">
       {predictedRepairer && (
         <div>
           <h2>Predicted Repairer:</h2>
-          <p>{predictedRepairer}</p>
+          <p className="AImodelLabel">{predictedRepairer}</p>
         </div>
       )}
+      </div>
     </div>
   );
 }
