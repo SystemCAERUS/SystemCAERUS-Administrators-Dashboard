@@ -4,19 +4,53 @@
   .departmentTable {
     width: 40vw;
     margin: 50px;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(244, 244, 244);
     height: 73vh;
     box-shadow: 1.5px 1.5px 0.5px 0.5px #dbdbdb;
 
-    .mapTitle{
-        background-color: rgb(207, 207, 207);
-        height: 30px;
-        text-align: center;
+    .departmentDataBox{
+      border: 1px solid black !important;
+    }
+
+    .tr-map {
+      width: 100%;
+      background-color: rgb(244, 244, 244);
+      height: 30px !important;
+      display: block !important;
+      color: rgb(106, 106, 106);
+      border: 1px solid black;
+
+      .department-id-map{
+        width: 30vw;
+        border-right: 1px solid black;
         justify-content: center;
-        vertical-align: middle;
+        text-align: center;
+        font-weight: 600;
         line-height: 30px;
-        color: rgb(112, 112, 112);
-        font-weight: 700;
+      }
+
+      .department-name-map{
+        width: 80%;
+        justify-content: center;
+        text-align: center;
+        font-weight: 600;
+
+      }
+
+
+    }
+
+    .mapTitle {
+      background-color: rgb(238, 234, 231);
+      height: 35px;
+      text-align: center;
+      justify-content: center;
+      vertical-align: middle;
+      line-height: 30px;
+      color: rgb(129, 129, 129);
+      font-weight: 700;
+      font-size: 20px;
+      padding: 5px;
     }
   }
 
@@ -27,7 +61,7 @@
       text-align: center;
       justify-content: center;
       display: flex;
-      background-color: rgb(228, 228, 228);
+      background-color: rgb(238, 234, 231);
       height: 15vh;
       color: rgb(148, 148, 148);
       font-weight: 700;
@@ -37,7 +71,7 @@
       line-height: 15vh;
       box-shadow: 1.5px 1.5px 0.5px 0.5px #dbdbdb;
 
-      &:hover{
+      &:hover {
         background-color: rgb(255, 242, 179);
         color: rgb(105, 105, 105);
       }
@@ -47,10 +81,10 @@
       color: rgb(148, 148, 148);
       font-weight: 700;
       font-size: 22px;
-      margin-top: 50px;
+      margin-top: 25px;
       text-align: center;
       display: flex;
-      background-color: rgb(228, 228, 228);
+      background-color: rgb(238, 234, 231);
       height: 15vh;
       width: 30vw;
       justify-content: center;
@@ -58,7 +92,7 @@
       line-height: 15vh;
       box-shadow: 1.5px 1.5px 0.5px 0.5px #dbdbdb;
 
-      &:hover{
+      &:hover {
         background-color: rgb(255, 179, 179);
         color: rgb(105, 105, 105);
       }
