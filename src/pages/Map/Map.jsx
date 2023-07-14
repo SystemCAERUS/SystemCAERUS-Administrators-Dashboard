@@ -40,6 +40,7 @@ function Map() {
                       <div>Department Name</div>
                     </td>
                   </tr>
+                  <div className="rendered-map-boxes">
                   {departments.map((department) =>
                     /*department.status === 1 ? (*/
                       <DepartmentBox className="departmentDataBox"
@@ -48,6 +49,7 @@ function Map() {
                       />
                     /*) : null*/
                   )}
+                  </div>
                 </div>
               </div>
             </div>

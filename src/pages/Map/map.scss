@@ -8,7 +8,7 @@
     height: 73vh;
     box-shadow: 1.5px 1.5px 0.5px 0.5px #dbdbdb;
 
-    .departmentDataBox{
+    .departmentDataBox {
       border: 1px solid black !important;
     }
 
@@ -20,7 +20,7 @@
       color: rgb(106, 106, 106);
       border: 1px solid black;
 
-      .department-id-map{
+      .department-id-map {
         width: 30vw;
         border-right: 1px solid black;
         justify-content: center;
@@ -29,15 +29,12 @@
         line-height: 30px;
       }
 
-      .department-name-map{
+      .department-name-map {
         width: 80%;
         justify-content: center;
         text-align: center;
         font-weight: 600;
-
       }
-
-
     }
 
     .mapTitle {
