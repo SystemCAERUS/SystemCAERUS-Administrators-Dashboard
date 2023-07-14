@@ -6,6 +6,7 @@ import "./map.scss";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import DepartmentBox from "./DepartmentBox";
+import { Link } from "react-router-dom";
 
 function Map() {
   const [departments, setDepartments] = useState([]);
@@ -41,21 +42,36 @@ function Map() {
                     </td>
                   </tr>
                   <div className="rendered-map-boxes">
-                  {departments.map((department) =>
-                    /*department.status === 1 ? (*/
-                      <DepartmentBox className="departmentDataBox"
-                        userid={department.id}
-                        name={department.departmentname}
-                      />
-                    /*) : null*/
-                  )}
+                    {departments.map(
+                      (department) => (
+                        /*department.status === 1 ? (*/
+                        <DepartmentBox
+                          className="departmentDataBox"
+                          userid={department.id}
+                          name={department.departmentname}
+                        />
+                      )
+                      /*) : null*/
+                    )}
                   </div>
                 </div>
               </div>
             </div>
             <div className="departmentSecondTable">
-              <div className="manageDepartmentButton">Manage Departments</div>
-              <div className="manageMachineButton">Manage Machines</div>
+              <Link
+                to="/map/departments"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <div className="manageDepartmentButton">Manage Departments</div>
+              </Link>
+
+              <Link
+                to="/map/machines"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <div className="manageMachineButton">Manage Machines</div>
+              </Link>
+
               <div className="wilmarMapImage">
                 <a href="https://pyramidwilmar.com/" target="_blank">
                   <img

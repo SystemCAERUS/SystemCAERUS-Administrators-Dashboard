@@ -19,6 +19,8 @@ import CloseIssue from "./pages/Issues/manage/CloseIssue"
 import UpdateIssue from "./pages/Issues/manage/UpdateIssue"
 import ReportIssue from "./pages/Issues/manage/ReportIssue"
 import ManageEmployee from "./pages/Employee/ManageEmployee"
+import ManageDepartment from "./pages/Map/ManageDepartment";
+import ManageMachines from "./pages/Map/ManageMachines";
 
 function App() {
   const { state, signIn } = useAuthContext();
@@ -77,6 +79,12 @@ function App() {
             </Route>
             <Route exact path="/map">
               <Map />
+            </Route>
+            <Route exact path="/map/machines">
+              <ManageMachines/>
+            </Route>
+            <Route exact path="/map/departments">
+              <ManageDepartment/>
             </Route>
             <Route exact path="/employees">
               <Employee />
