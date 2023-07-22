@@ -11,7 +11,7 @@ function MachineBox(props) {
         <div className="machineBoxName">
           {props.name}
           <span className="machineBoxUnique"># {props.uniqueName}</span>
-          <span className="machineBoxDepartment">( Department is {props.department} )</span>
+          <span className="machineBoxDepartment">|   {props.department} Department</span>
         </div>
         <div className="machineBoxDescription">{props.description}</div>
       </div>
