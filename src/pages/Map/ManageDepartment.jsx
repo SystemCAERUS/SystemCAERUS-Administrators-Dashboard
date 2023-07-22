@@ -19,19 +19,19 @@ function ManageDepartment() {
           </div>
           <div className="issueManageWrapper">
             <div className="manageFirstRow">
-              <Link to="/issues/manage/open" style={{ textDecoration: "none" }}>
+              <Link to="/map/departments/add" style={{ textDecoration: "none" }}>
                 <div className="openIssues" style={{ "background-color": "rgba(255, 203, 203, 1)"}}>Add New Department</div>
               </Link>
               <Link
-                to="/issues/manage/close"
+                to="/map/departments/hide"
                 style={{ textDecoration: "none" }}
               >
-                <div className="closeIssues">Remove Department</div>
+                <div className="closeIssues">Hide Department</div>
               </Link>
             </div>
             <div className="manageSecondRow">
               <Link
-                to="/issues/manage/update"
+                to="/map/departments/update"
                 style={{ textDecoration: "none" }}
               >
                 <div className="updateManageIssues" style={{ "background-color": "rgba(225,240,241,255)"}}>

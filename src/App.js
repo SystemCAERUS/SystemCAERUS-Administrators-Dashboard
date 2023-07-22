@@ -21,6 +21,12 @@ import ReportIssue from "./pages/Issues/manage/ReportIssue"
 import ManageEmployee from "./pages/Employee/ManageEmployee"
 import ManageDepartment from "./pages/Map/ManageDepartment";
 import ManageMachines from "./pages/Map/ManageMachines";
+import ManageJobPositions from "./pages/Map/ManageJobPositions";
+import AddDepartment from "./pages/Map/Manage/AddDepartment";
+import UpdateDepartment from "./pages/Map/Manage/UpdateDepartment";
+import HideDepartment from "./pages/Map/Manage/HideDepartment"
+import AddJobPositions from "./pages/Map/Manage/AddJobPosition";
+import AddMachine from "./pages/Map/Manage/AddMachine";
 
 function App() {
   const { state, signIn } = useAuthContext();
@@ -83,8 +89,26 @@ function App() {
             <Route exact path="/map/machines">
               <ManageMachines/>
             </Route>
+            <Route exact path="/map/machines/add">
+              <AddMachine/>
+            </Route>
             <Route exact path="/map/departments">
               <ManageDepartment/>
+            </Route>
+            <Route exact path="/map/positions">
+              <ManageJobPositions/>
+            </Route>
+            <Route exact path="/map/positions/add">
+              <AddJobPositions/>
+            </Route>
+            <Route exact path="/map/departments/add">
+              <AddDepartment/>
+            </Route>
+            <Route exact path="/map/departments/update">
+              <UpdateDepartment/>
+            </Route>
+            <Route exact path="/map/departments/hide">
+              <HideDepartment/>
             </Route>
             <Route exact path="/employees">
               <Employee />

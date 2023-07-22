@@ -31,7 +31,7 @@ function Map() {
           <div className="mapContent">
             <div className="departmentTable">
               <div className="mapTitle">Departments</div>
-              <div>
+              <div className="partscontent" style={{ overflowY: "auto", maxHeight: "90%" }}>
                 <div>
                   <tr className="tr-map">
                     <td className="department-id-map">
@@ -70,6 +70,13 @@ function Map() {
                 style={{ color: "inherit", textDecoration: "none" }}
               >
                 <div className="manageMachineButton">Manage Machines</div>
+              </Link>
+
+              <Link
+                to="/map/positions"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                <div className="manageMachineButton">Manage Job Positions</div>
               </Link>
 
               <div className="wilmarMapImage">

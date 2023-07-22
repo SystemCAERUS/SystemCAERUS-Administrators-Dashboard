@@ -81,7 +81,7 @@ function Machine() {
               <span className="subNameModel">#{selectedMachine.uniqueName}</span>
             </h2>
             <hr />
-            <img className="modelImage" src={selectedMachine.image} alt="" />
+            <img className="modelImage" src={"http://localhost:8800/"+selectedMachine.image} alt="" />
             <hr />
             <h4 className="departmentNameModel">Department is {selectedMachine.departmentname}</h4>
             <h4 className="modelSmallDes">{selectedMachine.smallDes}</h4>

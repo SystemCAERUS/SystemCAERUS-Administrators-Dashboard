@@ -5,7 +5,7 @@ function MachineBox(props) {
   return (
     <div className="machineBoxContent">
       <div className="machineBoximage">
-        <img src={props.image} alt="" className="machineImage" />
+        <img src={"http://localhost:8800/"+props.image} alt="" className="machineImage" />
       </div>
       <div className="machineContent">
         <div className="machineBoxName">
