@@ -3,16 +3,17 @@ import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import axios from "axios";
 import "./closeIssue.scss";
+import { useHistory } from "react-router-dom";
 
 function CloseIssue() {
   const [breakdowns, setBreakdowns] = useState([]);
-  const [selectedIssueID, setSelectedIssueID] = useState(null);
+  const [selectedIssueID, setSelectedIssueID] = useState('');
+  const [closingRemark, setClosingRemark] = useState("");
+  const [closingDes, setClosingDes] = useState("");
+  const [finishedWorkers, setFinishedWorkers] = useState("");
+  const history = useHistory();
 
   const filteredData = breakdowns.filter((item) => item.status === 1);
-
-  const handleDropdownChange = (event) => {
-    setSelectedIssueID(event.target.value);
-  };
 
   useEffect(() => {
     const fetchedIssues = async () => {
@@ -25,6 +26,65 @@ function CloseIssue() {
     };
     fetchedIssues();
   }, []);
+
+  //Handle inputs fields
+  const handleClosingRemark = (e) => {
+    setClosingRemark(e.target.value);
+  };
+
+  const handleDropdownChange = (event) => {
+    const selectedValue = event.target.value;
+    console.log("Selected value:", selectedValue);
+    setSelectedIssueID(selectedValue);
+  };
+  
+
+  const handleClosingDes = (e) => {
+    setClosingDes(e.target.value);
+  };
+
+  const handleFinishedWorkers = (e) => {
+    setFinishedWorkers(e.target.value);
+  };
+
+  //Validate form
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateForm = () => {
+    const errors = {};
+
+    if (!finishedWorkers || !closingDes || !closingRemark || !selectedIssueID) {
+      errors.form = "PLEASE FILL THE ALL FIELDS";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  //Submit close breakdown
+  const handleClose = () => {
+    const isFormValid = validateForm();
+    if (!isFormValid) {
+      return;
+    }
+  
+    const requestData = {
+      finishedWorkers: finishedWorkers,
+      selectedIssueID: parseInt(selectedIssueID),
+      closingDes: closingDes,
+      closingRemark : closingRemark,
+    };
+  
+    axios
+      .put("http://localhost:8800/issues", requestData)
+      .then((res) => {
+        console.log(res.data); // Log the data received from the server
+        history.push("/issues");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -51,17 +111,24 @@ function CloseIssue() {
               </select>
               <input
                 type="text"
-                //onChange={handleMachineName}
-                //value={machineName}
+                onChange={handleClosingRemark}
+                value={closingRemark}
                 placeholder="Please Enter the Closing Remark"
                 className="input-machine-name"
               />
               <input
                 type="text"
-                //onChange={handleMachineName}
-                //value={machineName}
+                onChange={handleClosingDes}
+                value={closingDes}
                 placeholder="Please enter the Detailed Description about the breakdown"
                 className="input-machine-name"
+              />
+              <input
+                type="text"
+                onChange={handleFinishedWorkers}
+                value={finishedWorkers}
+                placeholder="Employee's names who finished the Task    (Ex: Janith, Kavindu, Lahiru...)"
+                className="input-small-des"
               />
               <input
                 type="text"
@@ -69,13 +136,6 @@ function CloseIssue() {
                 //value={uniqueName}
                 placeholder="Please Enter the Breakdown Duration"
                 className="input-unique-name"
-              />
-              <input
-                type="text"
-                //onChange={handleSmallDes}
-                //value={smallDes}
-                placeholder="Employee's names who finished the Task    (Ex: Janith,Kavindu,Lahiru...)"
-                className="input-small-des"
               />
               <input
                 type="text"
@@ -98,8 +158,10 @@ function CloseIssue() {
                 placeholder="HARD TO ACESS TO"
                 className="input-small-des"
               />
-              {selectedIssueID && <p>Selected Issue ID: {selectedIssueID}</p>}
-              <button className="machine-button" >
+              {formErrors.form && (
+                <p style={{ color: "red" }}>{formErrors.form}</p>
+              )}
+              <button className="machine-button" onClick={handleClose}>
                 CLOSE BREAKDOWN
               </button>
             </div>
