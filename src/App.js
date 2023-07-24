@@ -27,6 +27,8 @@ import UpdateDepartment from "./pages/Map/Manage/UpdateDepartment";
 import HideDepartment from "./pages/Map/Manage/HideDepartment"
 import AddJobPositions from "./pages/Map/Manage/AddJobPosition";
 import AddMachine from "./pages/Map/Manage/AddMachine";
+import ManagePlanned from "./pages/Planner/ManagePlanned";
+import EquipmentPlanned from "./pages/Equipment/EquipmentPlanned";
 
 function App() {
   const { state, signIn } = useAuthContext();
@@ -61,6 +63,9 @@ function App() {
             </Route>
             <Route exact path="/planner">
               <Planner />
+            </Route>
+            <Route exact path="/planner/manage">
+              <ManagePlanned/>
             </Route>
             <Route exact path="/chat">
               <Chat />
@@ -118,6 +123,9 @@ function App() {
             </Route>
             <Route exact path="/equipment">
               <Equipment />
+            </Route>
+            <Route exact path="/equipment/manage">
+              <EquipmentPlanned/>
             </Route>
           </div>
         )}

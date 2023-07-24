@@ -99,9 +99,6 @@ function Equipment() {
             <div>
               <div className="manageTitle">Manage</div>
               <div className="manageContent">
-                <Link to="/equipment/add" style={{ textDecoration: "none" }}>
-                  <div className="addRepair">ADD NEW PARTS</div>
-                </Link>
                 <Link to="/equipment/manage" style={{ textDecoration: "none" }}>
                   <div className="manageRepair">MANAGE PARTS </div>
                 </Link>

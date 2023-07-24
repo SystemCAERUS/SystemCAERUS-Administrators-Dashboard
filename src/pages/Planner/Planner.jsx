@@ -119,7 +119,7 @@ function Planner() {
               </div>
             </div>
             <div className="manageTitleContainer">
-              <Link to="/planner" style={{ textDecoration: "none" }}>
+              <Link to="/planner/manage" style={{ textDecoration: "none" }}>
                 <div className="manageTitle">Manage Planned Tasks</div>
               </Link>
             </div>

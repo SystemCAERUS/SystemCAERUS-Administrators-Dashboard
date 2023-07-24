@@ -1,11 +1,11 @@
 import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import "./managePlanned.scss";
+//import "./managePlanned.scss";
 import Logo from "../../components/sidebar/logowilmar.png";
 import { Link } from "react-router-dom";
 
-function ManagePlanned() {
+function EquipmentPlanned() {
   return (
     <div className="home">
       <Sidebar />
@@ -13,18 +13,18 @@ function ManagePlanned() {
         <Navbar />
         <div className="hrwrapper">
           <div className="titleEmployee">
-            <span className="notificationEmployee">Manage Planned Tasks</span>
+            <span className="notificationEmployee">Manage Under Repair Parts</span>
           </div>
           <div className="issueManageWrapper">
             <div className="manageFirstRow">
               <Link to="/planner/manage/open" style={{ textDecoration: "none" }}>
-                <div className="openIssues">Open New Planned Task</div>
+                <div className="openIssues">Add New Part</div>
               </Link>
               <Link
                 to="/planner/manage/close"
                 style={{ textDecoration: "none" }}
               >
-                <div className="closeIssues">Close Planned Task</div>
+                <div className="closeIssues">Remove Under Repair Part</div>
               </Link>
             </div>
             <div className="manageSecondRow">
@@ -33,7 +33,7 @@ function ManagePlanned() {
                 style={{ textDecoration: "none" }}
               >
                 <div className="updateManageIssues">
-                  Update Exsiting Task
+                  Update Exsiting Details
                 </div>
               </Link>
               <Link
@@ -60,4 +60,4 @@ function ManagePlanned() {
   );
 }
 
-export default ManagePlanned;
+export default EquipmentPlanned;

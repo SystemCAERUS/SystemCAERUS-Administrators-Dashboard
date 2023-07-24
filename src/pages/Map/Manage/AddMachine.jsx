@@ -95,7 +95,7 @@ function AddMachine() {
       .post("http://localhost:8800/machines", formdata)
       .then((res) => {
         console.log(res);
-        history.push("/map");
+        history.push("/machines");
       })
       .catch((err) => console.log(err));
   };
