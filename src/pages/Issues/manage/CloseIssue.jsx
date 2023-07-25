@@ -78,7 +78,7 @@ function CloseIssue() {
     axios
       .put("http://localhost:8800/issues", requestData)
       .then((res) => {
-        console.log(res.data); // Log the data received from the server
+        console.log(res.data); 
         history.push("/issues");
       })
       .catch((err) => {

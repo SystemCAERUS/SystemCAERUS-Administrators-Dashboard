@@ -35,12 +35,6 @@ function Manage() {
                   Update Employee
                 </div>
               </Link>
-              <Link
-                to="/employees/manage/report"
-                style={{ textDecoration: "none" }}
-              >
-                <div className="reportGenerateIssues">Report Generation</div>
-              </Link>
             </div>
             <div className="bottom">
               <a href="https://pyramidwilmar.com/" target="_blank">

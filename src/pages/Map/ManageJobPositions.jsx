@@ -24,7 +24,7 @@ function ManageJobPositions() {
                 <div className="openIssues" style={{ "background-color": "rgba(255, 203, 203, 1)"}}>Add New Position</div>
               </Link>
               <Link
-                to="/map/departments/hide"
+                to="/map/positions/hide"
                 style={{ textDecoration: "none" }}
               >
                 <div className="closeIssues">Remove Job Position</div>
