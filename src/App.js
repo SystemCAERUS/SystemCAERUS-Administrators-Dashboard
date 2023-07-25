@@ -31,7 +31,7 @@ import ManagePlanned from "./pages/Planner/ManagePlanned";
 import EquipmentPlanned from "./pages/Equipment/EquipmentPlanned";
 import HideJobPosition from "./pages/Map/Manage/HideJobPosition";
 import FormAddEmployee from "./pages/Employee/Manage/FormAdd"
-import FormCloseEmployee from "./pages/Employee/Manage/FormClose"
+import FormCloseEmployee from "./pages/Employee/Manage/FormClose";
 import FormUpdateEmployee from "./pages/Employee/Manage/FormUpdate"
 
 function App() {
