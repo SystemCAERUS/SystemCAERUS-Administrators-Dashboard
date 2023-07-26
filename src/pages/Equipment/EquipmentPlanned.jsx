@@ -17,11 +17,11 @@ function EquipmentPlanned() {
           </div>
           <div className="issueManageWrapper">
             <div className="manageFirstRow">
-              <Link to="/planner/manage/open" style={{ textDecoration: "none" }}>
+              <Link to="/equipment/manage/open" style={{ textDecoration: "none" }}>
                 <div className="openIssues">Add New Part</div>
               </Link>
               <Link
-                to="/planner/manage/close"
+                to="/equipment/manage/close"
                 style={{ textDecoration: "none" }}
               >
                 <div className="closeIssues">Remove Under Repair Part</div>
@@ -29,7 +29,7 @@ function EquipmentPlanned() {
             </div>
             <div className="manageSecondRow">
               <Link
-                to="/planner/manage/update"
+                to="/equipment/manage/update"
                 style={{ textDecoration: "none" }}
               >
                 <div className="updateManageIssues">

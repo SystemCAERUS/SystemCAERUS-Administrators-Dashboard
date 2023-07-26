@@ -11,7 +11,7 @@ function UpdateIssue() {
           <Navbar />
           <div className="hrwrapper">
             <div className="title">
-              <span className="notification">Update Breakdown Details</span>
+              <span className="notification">Update Repair Parts</span>
             </div>
            
           </div>

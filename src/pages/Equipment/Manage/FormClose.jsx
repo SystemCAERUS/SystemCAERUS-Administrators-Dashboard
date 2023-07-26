@@ -1,8 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
+import axios from "axios";
+import "../../Map/general.scss";
+import { useHistory } from "react-router-dom";
 
-function UpdateIssue() {
+function HandlecloseRepair() {
+  const history = useHistory();
+  const [repairs, setRepairs] = useState([]);
+  const [selectedID, setSelectedID] = useState('');
+  const [securityCode, setSecurityCode] = useState("");
+  const filteredData = repairs.filter((item) => item.status === 1);
+
+  useEffect(() => {
+    const fetchedRepairs = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/repairs");
+        setRepairs(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchedRepairs();
+  }, []);
+
+  const handleDropdownChange = (event) => {
+    const selectedValue = event.target.value;
+    console.log("Selected value:", selectedValue);
+    setSelectedID(selectedValue);
+  };
+
+  const handleSecCode = (e) => {
+    setSecurityCode(e.target.value);
+  };
+
+  //Validate form
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateForm = () => {
+    const errors = {};
+
+    if (!(securityCode === "AJAJaj19998#@#@$$") || !selectedID) {
+      errors.form = "Please Select Repair Part and Enter Security Code correctly";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  //Submit close breakdown
+  const handleClose = () => {
+    const isFormValid = validateForm();
+    if (!isFormValid) {
+      return;
+    }
+
+    const requestData = {
+      selectedJobID: parseInt(selectedID),
+    };
+
+    axios
+      .put("http://localhost:8800/repairs", requestData)
+      .then((res) => {
+        console.log(res.data);
+        history.push("/equipment");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <div className="home">
@@ -11,9 +78,34 @@ function UpdateIssue() {
           <Navbar />
           <div className="hrwrapper">
             <div className="title">
-              <span className="notification">Update Breakdown Details</span>
+              <span className="notification">Close Repair Parts</span>
             </div>
-           
+            <div className="issue-close-fields">
+              <select
+                value={selectedID}
+                onChange={handleDropdownChange}
+                className="open-issue-dropdown"
+              >
+                <option value="">Select Repair Part You wish to close</option>
+                {filteredData.map((item) => (
+                  <option key={item.repairid} value={item.repairid}>
+                    {"Repair Part name --> " + item.partname + '\u00A0' + "  |  " + '\u00A0' + " ( Machine name: " + item.machinename + "  /  " + " Department name: " + item.departmentname + " )"}
+                  </option>
+                ))}
+              </select>
+              <label className="security-code">Security Code : &nbsp;&nbsp;&nbsp; AJAJaj19998#@#@$$</label>
+              <input
+                type="text"
+                onChange={handleSecCode}
+                value={securityCode}
+                className="input-machine-name"
+                placeholder="Please Enter Above Security Code"
+              />
+              {formErrors.form && (
+                <p style={{ color: "red" }}>{formErrors.form}</p>
+              )}
+              <button className="machine-button" onClick={handleClose}>Move Repair Part to Fixed Section</button>
+            </div>
           </div>
         </div>
       </div>
@@ -21,4 +113,5 @@ function UpdateIssue() {
   );
 }
 
-export default UpdateIssue;
+export default HandlecloseRepair;
+

@@ -33,6 +33,10 @@ import HideJobPosition from "./pages/Map/Manage/HideJobPosition";
 import FormAddEmployee from "./pages/Employee/Manage/FormAdd"
 import FormCloseEmployee from "./pages/Employee/Manage/FormClose";
 import FormUpdateEmployee from "./pages/Employee/Manage/FormUpdate"
+import FormAddEquipment from "./pages/Equipment/Manage/FormAdd"
+import FormCloseEquipment from "./pages/Equipment/Manage/FormClose";
+import FormUpdateEquipment from "./pages/Equipment/Manage/FormUpdate"
+import FromClosePlanner from "./pages/Planner/manage/FormClose";
 
 function App() {
   const { state, signIn } = useAuthContext();
@@ -70,6 +74,9 @@ function App() {
             </Route>
             <Route exact path="/planner/manage">
               <ManagePlanned/>
+            </Route>
+            <Route exact path="/planner/manage/close">
+              <FromClosePlanner/>
             </Route>
             <Route exact path="/chat">
               <Chat />
@@ -142,6 +149,15 @@ function App() {
             </Route>
             <Route exact path="/equipment/manage">
               <EquipmentPlanned/>
+            </Route>
+            <Route exact path="/equipment/manage/open">
+              <FormAddEquipment/>
+            </Route>
+            <Route exact path="/equipment/manage/close">
+              <FormCloseEquipment/>
+            </Route>
+            <Route exact path="/equipment/manage/update">
+              <FormUpdateEquipment/>
             </Route>
           </div>
         )}
