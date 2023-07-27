@@ -1,71 +1,111 @@
-import React, { useState } from "react";
-//import "./Add.scss";
-import Navbar from "../../../components/navbar/Navbar";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../../components/sidebar/Sidebar";
+import Navbar from "../../../components/navbar/Navbar";
 import axios from "axios";
-import { useHistory , useLocation} from "react-router-dom";
+import "../../Map/general.scss";
+import { useHistory } from "react-router-dom";
 
-function Update() {
+function HandleHideDepartment() {
   const history = useHistory();
-  const location = useLocation();
-  const noticeId = location.pathname.split("/")[3];
+  const [repairs, setRepairs] = useState([]);
+  const [selectedID, setSelectedID] = useState('');
+  const [securityCode, setSecurityCode] = useState("");
+  const filteredData = repairs.filter((item) => item.hide === 0);
 
-  const [notice, setNotice] = useState({
-    notification: "",
-    desc:"",
-    value: null,
-    date: "",
-  });
+  useEffect(() => {
+    const fetchedRepairs = async () => {
+      try {
+        const res = await axios.get("http://localhost:8800/departments");
+        setRepairs(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchedRepairs();
+  }, []);
 
-  function handleChange(e) {
-    setNotice((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  }
+  const handleDropdownChange = (event) => {
+    const selectedValue = event.target.value;
+    console.log("Selected value:", selectedValue);
+    setSelectedID(selectedValue);
+  };
 
-  async function handleClick(e) {
-    e.preventDefault();
-    try {
-      await axios.put(`http://localhost:8800/hr/update/${noticeId}`, notice);
-      history.push("/hr");
-    } catch (err) {
-      console.log(err);
+  const handleSecCode = (e) => {
+    setSecurityCode(e.target.value);
+  };
+
+  //Validate form
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateForm = () => {
+    const errors = {};
+
+    if (!(securityCode === "AJAJaj19998#@#@$$") || !selectedID) {
+      errors.form = "Please Select Repair Part and Enter Security Code correctly";
     }
-  }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  //Submit close breakdown
+  const handleClose = () => {
+    const isFormValid = validateForm();
+    if (!isFormValid) {
+      return;
+    }
+
+    const requestData = {
+      selectedJobID: parseInt(selectedID),
+    };
+
+    axios
+      .put("http://localhost:8800/repairs", requestData)
+      .then((res) => {
+        console.log(res.data);
+        history.push("/equipment");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
-    <div className="home">
-      <Sidebar />
-      <div className="homeContainer">
-        <Navbar />
-        <div className="hrwrapper">
-          <div className="form">
-            <h1>Update Notice</h1>
-            <input
-              type="text"
-              placeholder="notification"
-              onChange={handleChange}
-              name="notification"
-              required
-            />
-            <input
-              type="text"
-              placeholder="desc"
-              onChange={handleChange}
-              name="desc"
-              required
-            />
-            <input
-              type="number"
-              placeholder="value"
-              onChange={handleChange}
-              name="value"
-            />
-            <input
-              type="date"
-              placeholder="date"
-              onChange={handleChange}
-              name="date"
-            />
-            <button onClick={handleClick}>Update Notice</button>
+    <div>
+      <div className="home">
+        <Sidebar />
+        <div className="homeContainer">
+          <Navbar />
+          <div className="hrwrapper">
+            <div className="title">
+              <span className="notification">Remove Department from the System</span>
+            </div>
+            <div className="issue-close-fields">
+              <select
+                value={selectedID}
+                onChange={handleDropdownChange}
+                className="open-issue-dropdown"
+              >
+                <option value="">Select Department you wish to remove from system</option>
+                {filteredData.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    { item.departmentname }
+                  </option>
+                ))}
+              </select>
+              <label className="security-code">Security Code : &nbsp;&nbsp;&nbsp; AJAJaj19998#@#@$$</label>
+              <input
+                type="text"
+                onChange={handleSecCode}
+                value={securityCode}
+                className="input-machine-name"
+                placeholder="Please Enter Above Security Code"
+              />
+              {formErrors.form && (
+                <p style={{ color: "red" }}>{formErrors.form}</p>
+              )}
+              <button className="machine-button" onClick={handleClose}>Remove Department</button>
+            </div>
           </div>
         </div>
       </div>
@@ -73,6 +113,7 @@ function Update() {
   );
 }
 
-export default Update;
+export default HandleHideDepartment;
+
 
 

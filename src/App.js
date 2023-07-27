@@ -27,6 +27,7 @@ import UpdateDepartment from "./pages/Map/Manage/UpdateDepartment";
 import HideDepartment from "./pages/Map/Manage/HideDepartment"
 import AddJobPositions from "./pages/Map/Manage/AddJobPosition";
 import AddMachine from "./pages/Map/Manage/AddMachine";
+import CloseMachine from "./pages/Map/Manage/RemoveMachine";
 import ManagePlanned from "./pages/Planner/ManagePlanned";
 import EquipmentPlanned from "./pages/Equipment/EquipmentPlanned";
 import HideJobPosition from "./pages/Map/Manage/HideJobPosition";
@@ -106,6 +107,12 @@ function App() {
               <ManageMachines/>
             </Route>
             <Route exact path="/map/machines/add">
+              <AddMachine/>
+            </Route>
+            <Route exact path="/map/machines/close">
+              <CloseMachine/>
+            </Route>
+            <Route exact path="/map/machines/update">
               <AddMachine/>
             </Route>
             <Route exact path="/map/departments">

@@ -21,7 +21,7 @@ function ManageMachines() {
                 <div className="openIssues">Add Machine</div>
               </Link>
               <Link
-                to="/issues/manage/close"
+                to="/map/machines/close"
                 style={{ textDecoration: "none" }}
               >
                 <div className="closeIssues">Remove Machine</div>
@@ -29,7 +29,7 @@ function ManageMachines() {
             </div>
             <div className="manageSecondRow">
               <Link
-                to="/issues/manage/update"
+                to="/map/machines/update"
                 style={{ textDecoration: "none" }}
               >
                 <div className="updateManageIssues">
