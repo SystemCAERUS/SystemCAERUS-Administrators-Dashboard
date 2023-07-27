@@ -10,6 +10,7 @@ function Machine() {
   const [machines, setMachines] = useState([]);
   const [selectedMachine, setSelectedMachine] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const filteredData = machines.filter((item) => item.hideMachine === 0);
 
   useEffect(() => {
     const fetchMachines = async () => {
@@ -31,7 +32,7 @@ function Machine() {
     setSelectedMachine(null);
   };
 
-  const filteredMachines = machines.filter((machine) =>
+  const filteredMachines = filteredData.filter((machine) =>
     machine.uniqueName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 

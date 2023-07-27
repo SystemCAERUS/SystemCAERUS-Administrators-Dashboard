@@ -8,9 +8,9 @@ import { useHistory } from "react-router-dom";
 function HandleHideDepartment() {
   const history = useHistory();
   const [repairs, setRepairs] = useState([]);
-  const [selectedID, setSelectedID] = useState('');
+  const [selectedID, setSelectedID] = useState("");
   const [securityCode, setSecurityCode] = useState("");
-  const filteredData = repairs.filter((item) => item.hide === 0);
+  const filteredData = repairs.filter((item) => item.hideMachine === 0);
 
   useEffect(() => {
     const fetchedRepairs = async () => {
@@ -41,7 +41,8 @@ function HandleHideDepartment() {
     const errors = {};
 
     if (!(securityCode === "AJAJaj19998#@#@$$") || !selectedID) {
-      errors.form = "Please Select Repair Part and Enter Security Code correctly";
+      errors.form =
+        "Please Select Repair Part and Enter Security Code correctly";
     }
 
     setFormErrors(errors);
@@ -56,14 +57,14 @@ function HandleHideDepartment() {
     }
 
     const requestData = {
-      selectedJobID: parseInt(selectedID),
+      id: parseInt(selectedID),
     };
 
     axios
-      .put("http://localhost:8800/repairs", requestData)
+      .put("http://localhost:8800/departments/machine", requestData)
       .then((res) => {
         console.log(res.data);
-        history.push("/equipment");
+        history.push("/map");
       })
       .catch((err) => {
         console.log(err);
@@ -78,7 +79,9 @@ function HandleHideDepartment() {
           <Navbar />
           <div className="hrwrapper">
             <div className="title">
-              <span className="notification">Remove Machine from the System</span>
+              <span className="notification">
+                Remove Machine from the System
+              </span>
             </div>
             <div className="issue-close-fields">
               <select
@@ -86,14 +89,22 @@ function HandleHideDepartment() {
                 onChange={handleDropdownChange}
                 className="open-issue-dropdown"
               >
-                <option value="">Select Machine you wish to remove from system</option>
+                <option value="">
+                  Select Machine you wish to remove from system
+                </option>
                 {filteredData.map((item) => (
-                  <option key={item.machineid} value={item.machineid}>
-                    {"Machine name --> "+ item.machinename +'\u00A0'+" | "  +'\u00A0'+ "Department --> " + item.departmentname}
-                  </option>
+                      <option key={item.machineid} value={item.machineid}>
+                      {"Machine name --> " +
+                        item.machinename +
+                        "\u00A0 | \u00A0" +
+                        "Department --> " +
+                        item.departmentname}
+                    </option>
                 ))}
               </select>
-              <label className="security-code">Security Code : &nbsp;&nbsp;&nbsp; AJAJaj19998#@#@$$</label>
+              <label className="security-code">
+                Security Code : &nbsp;&nbsp;&nbsp; AJAJaj19998#@#@$$
+              </label>
               <input
                 type="text"
                 onChange={handleSecCode}
@@ -104,7 +115,9 @@ function HandleHideDepartment() {
               {formErrors.form && (
                 <p style={{ color: "red" }}>{formErrors.form}</p>
               )}
-              <button className="machine-button" onClick={handleClose}>Remove Machine</button>
+              <button className="machine-button" onClick={handleClose}>
+                Remove Machine
+              </button>
             </div>
           </div>
         </div>

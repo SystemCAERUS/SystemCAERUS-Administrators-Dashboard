@@ -56,14 +56,14 @@ function HandleHideDepartment() {
     }
 
     const requestData = {
-      selectedJobID: parseInt(selectedID),
+      id: parseInt(selectedID),
     };
 
     axios
-      .put("http://localhost:8800/repairs", requestData)
+      .put("http://localhost:8800/departments", requestData)
       .then((res) => {
         console.log(res.data);
-        history.push("/equipment");
+        history.push("/map");
       })
       .catch((err) => {
         console.log(err);
