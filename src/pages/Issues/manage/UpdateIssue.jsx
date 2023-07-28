@@ -3,17 +3,40 @@ import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import axios from "axios";
 import "./closeIssue.scss";
+import { useHistory } from "react-router-dom";
 
 function UpdateIssue() {
+  const history = useHistory();
   const [breakdowns, setBreakdowns] = useState([]);
   const [selectedIssueID, setSelectedIssueID] = useState(null);
+  const [issueDes,setIssueDes]=useState("");
+  const [priority,setPriority]=useState("");
+  const [sDepartment,setSelectedDepartments]=useState("");
+  const [sMachine,setSelectedmachine]=useState("");
 
-  const filteredData = breakdowns.filter((item) => item.status === 1);
 
   const handleDropdownChange = (event) => {
     setSelectedIssueID(event.target.value);
   };
 
+  const handleIssueDesChange = (event) => {
+    setIssueDes(event.target.value);
+  };
+
+  const handlePriorityChange = (event) => {
+    setPriority(event.target.value);
+  };
+
+  const handleMachineChange = (event) => {
+    setSelectedmachine(event.target.value)
+  };
+
+  const handleDepartmentChange = (event) => {
+    setSelectedDepartments(event.target.value);
+  };
+
+
+  //fetch issues
   useEffect(() => {
     const fetchedIssues = async () => {
       try {
@@ -25,9 +48,11 @@ function UpdateIssue() {
     };
     fetchedIssues();
   }, []);
+  const filteredData = breakdowns.filter((item) => item.status === 1);
 
-  const [departments, setDepartments] = useState([]);
 
+  //fetch departments
+  const [allDepartment, setDepartments] = useState([]);
   useEffect(() => {
     const fetchMachines = async () => {
       try {
@@ -39,33 +64,68 @@ function UpdateIssue() {
     };
     fetchMachines();
   }, []);
+  const departments = allDepartment.filter((item) => item.hide === 0);
 
 
-  const [filteredMachines, setFilteredMachines] = useState([]);
+  //fetch machines
   const [machines, setMachines] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  function handleMachineSearch(searchTerm) {
-    const filtered = machines.filter(
-      (machine) =>
-        machine.machinename.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        machine.uniqueName.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredMachines(filtered);
-  }
-
   useEffect(() => {
     const fetchMachines = async () => {
       try {
         const res = await axios.get("http://localhost:8800/machines");
         setMachines(res.data);
-        setFilteredMachines(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchMachines();
   }, []);
+  const filteredMachines = machines.filter((item) => item.hideMachine === 0);
+
+
+  //Validate form
+  const [formErrors, setFormErrors] = useState({});
+  const validateForm = () => {
+    const errors = {};
+
+    if (!selectedIssueID) {
+      errors.form =
+        "Please Select Job Position and Enter Security Code correctly";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+
+  //Update issues
+  const handleClose = () => {
+    const isFormValid = validateForm();
+    if (!isFormValid) {
+      return;
+    }
+
+    const formdata = new FormData();
+    formdata.append("issueID", selectedIssueID);
+    formdata.append("issueDes", issueDes);
+    formdata.append("priority", priority);
+    formdata.append("dep", sDepartment);
+    formdata.append("machine", sMachine);
+
+    axios
+      .put("http://localhost:8800/issues/update", formdata, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        history.push("/issues");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -92,9 +152,9 @@ function UpdateIssue() {
               </select>
               <select
                 className="open-issue-dropdown"
-                //onChange={handleChange}
-                //name="priority"
-                //value={issues.priority}
+                onChange={handlePriorityChange}
+                name="priority"
+                value={priority}
               >
                 <option value="">Update Selected Priority</option>
                 <option value={0}>Low Priority</option>
@@ -104,8 +164,8 @@ function UpdateIssue() {
               <select
                 id="departments"
                 className="open-issue-dropdown"
-                // value={issues.departmentID}
-                // onChange={handleChange}
+                value={sDepartment}
+                onChange={handleDepartmentChange}
                 name="departmentID"
               >
                 <option value="">Update Selected Department</option>
@@ -118,8 +178,8 @@ function UpdateIssue() {
               <select
                 id="departments"
                 className="open-issue-dropdown"
-               // value={issues.machineID}
-               // onChange={handleChange}
+                value={sMachine}
+                onChange={handleMachineChange}
                 name="machineID"
               >
                 <option value="">Update Selected Machine</option>
@@ -131,14 +191,18 @@ function UpdateIssue() {
               </select>
               <input
                 type="text"
-                //onChange={handleMachineName}
-                //value={machineName}
+                onChange={handleIssueDesChange}
+                value={issueDes}
                 placeholder="Please Enter the Updated Breakdown Description"
                 className="input-machine-name"
               />
+                                          {formErrors.form && (
+                <p style={{ color: "red" }}>{formErrors.form}</p>
+              )}
 
-              {selectedIssueID && <p>Selected Issue ID: {selectedIssueID}</p>}
-              <button className="machine-button">CLOSE BREAKDOWN</button>
+              <button className="machine-button" onClick={handleClose}>
+                UPDATE BREAKDOWN
+              </button>
             </div>
           </div>
         </div>

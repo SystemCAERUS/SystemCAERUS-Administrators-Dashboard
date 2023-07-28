@@ -38,6 +38,7 @@ import FormAddEquipment from "./pages/Equipment/Manage/FormAdd"
 import FormCloseEquipment from "./pages/Equipment/Manage/FormClose";
 import FormUpdateEquipment from "./pages/Equipment/Manage/FormUpdate"
 import FromClosePlanner from "./pages/Planner/manage/FormClose";
+import FromOpenPlanner from "./pages/Planner/manage/FormOpen";
 
 function App() {
   const { state, signIn } = useAuthContext();
@@ -78,6 +79,9 @@ function App() {
             </Route>
             <Route exact path="/planner/manage/close">
               <FromClosePlanner/>
+            </Route>
+            <Route exact path="/planner/manage/open">
+              <FromOpenPlanner/>
             </Route>
             <Route exact path="/chat">
               <Chat />

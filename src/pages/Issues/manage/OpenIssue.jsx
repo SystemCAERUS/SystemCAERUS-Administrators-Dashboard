@@ -15,6 +15,7 @@ function OpenIssue() {
     priority: null,
     departmentID: null,
     machineID: null,
+    assignee:"",
   });
 
   const [errors, setErrors] = useState({
@@ -162,6 +163,20 @@ function OpenIssue() {
                 required
                 placeholder={errors.issueDesc && errors.issueDesc}
               ></textarea>
+            </div>
+            <div className="IssuesTitle">
+              <label className="IssuesLabel">
+                Please Assign an Employee (Opt.) :
+                <h6>කරුණාකර සේවකයෙකුට රැකියාව පවරන්න</h6>
+              </label>
+              <input
+                className="issueTitle"
+                type="text"
+                onChange={handleChange}
+                name="assignee"
+                value={issues.assignee}
+                required
+              />
             </div>
             <br />
             <div className="twoPickers">
