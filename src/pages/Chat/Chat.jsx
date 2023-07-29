@@ -1,52 +1,34 @@
-import React, { useState } from 'react';
+import React from "react";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
+import "./chat.scss";
+import ChatNavBar from "./component/Navbar"
+import { auth } from "../../firebase";
+import {useAuthState} from 'react-firebase-hooks/auth'
+import ChatBox from './component/Chat'
 
-const ChatPage = () => {
-  const [messages, setMessages] = useState([
-    { sender: 'John', message: 'Hello there!' },
-    { sender: 'Alice', message: 'Hi John! How are you?' },
-    { sender: 'John', message: "I'm doing great. How about you?" },
-  ]);
-
-  const [newMessage, setNewMessage] = useState('');
-  const [newSender, setNewSender] = useState('');
-
-  const handleSendMessage = () => {
-    if (newMessage && newSender) {
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: newSender, message: newMessage },
-      ]);
-      setNewMessage('');
-    }
-  };
-
+function Chat() {
+  const [user] = useAuthState(auth)
+  console.log(user)
+  
   return (
-    <div className="chat-container">
-      <div className="chat-messages">
-        {messages.map((msg, index) => (
-          <div key={index} className="message">
-            <div className="sender">{msg.sender}</div>
-            <div className="text">{msg.message}</div>
+    <div className="home">
+      <Sidebar />
+      <div className="homeContainer">
+        <Navbar />
+        <div className="chat-box">
+          <div>
+            <section>
+              {/*Navbar*/}
+              <ChatNavBar/>
+              <ChatBox/>
+              {/*Chat*/}
+            </section>
           </div>
-        ))}
-      </div>
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="Sender"
-          value={newSender}
-          onChange={(e) => setNewSender(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Message"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-        />
-        <button onClick={handleSendMessage}>Send</button>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default ChatPage;
+export default Chat;

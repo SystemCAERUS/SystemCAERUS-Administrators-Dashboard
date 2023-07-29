@@ -79,6 +79,8 @@ function ReportIssue() {
                   {breakdowns.length === 0 ? (
                     <p className="noparts">No Breakdowns</p>
                   ) : (
+
+
                     breakdowns.map((item) =>
                       item.status === 0 ? (
                         <ReportMsg

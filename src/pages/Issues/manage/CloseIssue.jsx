@@ -7,13 +7,28 @@ import { useHistory } from "react-router-dom";
 
 function CloseIssue() {
   const [breakdowns, setBreakdowns] = useState([]);
-  const [selectedIssueID, setSelectedIssueID] = useState('');
+  const [selectedIssueID, setSelectedIssueID] = useState("");
   const [closingRemark, setClosingRemark] = useState("");
   const [closingDes, setClosingDes] = useState("");
   const [finishedWorkers, setFinishedWorkers] = useState("");
+  const [hardtoAccesTo, setHardToAccessTo] = useState("");
   const history = useHistory();
 
   const filteredData = breakdowns.filter((item) => item.status === 1);
+
+  //clock logic
+  const [hours, setHours] = useState("");
+  const [minutes, setMinutes] = useState("");
+
+  const handleHoursChange = (e) => {
+    const value = e.target.value;
+    setHours(value);
+  };
+
+  const handleMinutesChange = (e) => {
+    const value = e.target.value;
+    setMinutes(value);
+  };
 
   useEffect(() => {
     const fetchedIssues = async () => {
@@ -37,7 +52,6 @@ function CloseIssue() {
     console.log("Selected value:", selectedValue);
     setSelectedIssueID(selectedValue);
   };
-  
 
   const handleClosingDes = (e) => {
     setClosingDes(e.target.value);
@@ -45,6 +59,10 @@ function CloseIssue() {
 
   const handleFinishedWorkers = (e) => {
     setFinishedWorkers(e.target.value);
+  };
+
+  const handleHardToAccesTo = (e) => {
+    setHardToAccessTo(e.target.value);
   };
 
   //Validate form
@@ -67,18 +85,20 @@ function CloseIssue() {
     if (!isFormValid) {
       return;
     }
-  
+    console.log(hardtoAccesTo);
+
     const requestData = {
       finishedWorkers: finishedWorkers,
       selectedIssueID: parseInt(selectedIssueID),
       closingDes: closingDes,
-      closingRemark : closingRemark,
+      closingRemark: closingRemark,
+      hardtoAccesTo: hardtoAccesTo,
     };
-  
+
     axios
       .put("http://localhost:8800/issues", requestData)
       .then((res) => {
-        console.log(res.data); 
+        console.log(res.data);
         history.push("/issues");
       })
       .catch((err) => {
@@ -130,34 +150,59 @@ function CloseIssue() {
                 placeholder="Employee's names who finished the Task    (Ex: Janith, Kavindu, Lahiru...)"
                 className="input-small-des"
               />
-              <input
-                type="text"
-                //onChange={handleUniqueName}
-                //value={uniqueName}
-                placeholder="Please Enter the Breakdown Duration"
-                className="input-unique-name"
-              />
-              <input
-                type="text"
-                //onChange={handleUniqueName}
-                //value={uniqueName}
-                placeholder="ABNORMALITY"
-                className="input-unique-name"
-              />
-              <input
-                type="text"
-                //onChange={handleSmallDes}
-                //value={smallDes}
-                placeholder="CONTAMINATION"
-                className="input-small-des"
-              />
-              <input
-                type="text"
-                //onChange={handleSmallDes}
-                //value={smallDes}
-                placeholder="HARD TO ACESS TO"
-                className="input-small-des"
-              />
+
+              <div className="pikers">
+                <select
+                  className="dropdown"
+                  onChange={handleHardToAccesTo}
+                  name="priority"
+                  value={hardtoAccesTo}
+                >
+                  <option value="">ABNORMALITY</option>
+                  <option value={"Clean"}>Clean</option>
+                  <option value={"Inspect"}>Inspect</option>
+                  <option value={"Lubricate"}>Lubricate</option>
+                  <option value={"Replace"}>Replace</option>
+                  <option value={"Tighten"}>Tighten</option>
+                  <option value={"Other"}>Other</option>
+                </select>
+                <br />
+              </div>
+              <div className="pikers">
+                <select
+                  className="dropdown"
+                  onChange={handleHardToAccesTo}
+                  name="priority"
+                  value={hardtoAccesTo}
+                >
+                  <option value="">CONTAMINATION</option>
+                  <option value={"Clean"}>Clean</option>
+                  <option value={"Inspect"}>Inspect</option>
+                  <option value={"Lubricate"}>Lubricate</option>
+                  <option value={"Replace"}>Replace</option>
+                  <option value={"Tighten"}>Tighten</option>
+                  <option value={"Other"}>Other</option>
+                </select>
+                <br />
+              </div>
+              <div className="pikers">
+                <select
+                  className="dropdown"
+                  onChange={handleHardToAccesTo}
+                  name="priority"
+                  value={hardtoAccesTo}
+                >
+                  <option value="">HARD TO ACCESS TO</option>
+                  <option value={"Clean"}>Clean</option>
+                  <option value={"Inspect"}>Inspect</option>
+                  <option value={"Lubricate"}>Lubricate</option>
+                  <option value={"Replace"}>Replace</option>
+                  <option value={"Tighten"}>Tighten</option>
+                  <option value={"Other"}>Other</option>
+                </select>
+                <br />
+              </div>
+
               {formErrors.form && (
                 <p style={{ color: "red" }}>{formErrors.form}</p>
               )}

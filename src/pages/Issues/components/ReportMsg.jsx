@@ -2,6 +2,7 @@ import React from "react";
 import "./IssueMsg.scss";
 
 function ReportMsg(props) {
+  
   return (
     <div className="issue-container">
       <tr>
