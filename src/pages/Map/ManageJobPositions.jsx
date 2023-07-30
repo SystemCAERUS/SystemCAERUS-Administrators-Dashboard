@@ -32,7 +32,7 @@ function ManageJobPositions() {
             </div>
             <div className="manageSecondRow">
               <Link
-                to="/map/departments/update"
+                to="/map/positions/update"
                 style={{ textDecoration: "none" }}
               >
                 <div className="updateManageIssues" style={{ "background-color": "rgba(225,240,241,255)"}}>

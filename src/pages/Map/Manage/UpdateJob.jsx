@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 //import "./Add.scss";
 import Navbar from "../../../components/navbar/Navbar";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-function UpdateDepartment() {
+function AddJob() {
   const history = useHistory();
 
-  const [repairs, setRepairs] = useState([]);
+  const [positions, setPositions] = useState([]);
   const [selectedID, setSelectedID] = useState("");
-  const filteredData = repairs.filter((item) => item.hide === 0);
+  const filteredData = positions.filter((item) => item.positionHide === 1);
 
   useEffect(() => {
     const fetchedRepairs = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/departments");
-        setRepairs(res.data);
+        const res = await axios.get("http://localhost:8800/positions");
+        setPositions(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -30,7 +30,8 @@ function UpdateDepartment() {
     setSelectedID(selectedValue);
   };
 
-  const [departments, setDepartment] = useState({
+
+  const [position, setPosition] = useState({
     name: "",
     desc: "",
   });
@@ -41,7 +42,7 @@ function UpdateDepartment() {
   });
 
   function handleChange(e) {
-    setDepartment((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setPosition((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
   }
 
@@ -51,15 +52,17 @@ function UpdateDepartment() {
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
-      const updatedDepartments = {
-        ...departments,selectedID,
+      const updatedPosition = {
+        ...position,
+        selectedID,
       };
 
-      console.log(updatedDepartments)
+      console.log(updatedPosition)
+
       try {
         await axios.put(
-          "http://localhost:8800/departments/update",
-          updatedDepartments
+          "http://localhost:8800/positions/update",
+          updatedPosition
         );
         history.push("/map");
       } catch (error) {
@@ -73,12 +76,12 @@ function UpdateDepartment() {
   function validateForm() {
     const errors = {};
 
-    if (departments.name.trim() === "") {
-      errors.name = "Please enter the name of the department";
+    if (position.name.trim() === "") {
+      errors.name = "Please enter the Job Title";
     }
 
-    if (departments.desc.trim() === "") {
-      errors.desc = "Please enter the desciption of the department";
+    if (position.desc.trim() === "") {
+      errors.desc = "Please enter the Job description";
     }
 
     return errors;
@@ -91,7 +94,7 @@ function UpdateDepartment() {
         <Navbar />
         <div className="hrwrapper">
           <div className="form">
-            <h1 className="addTitle">UPDATE DEPARTMENT</h1>
+            <h1 className="addTitle">UPDATE JOB POSITIONS</h1>
             <div className="dip-dropdown">
               <select
                 value={selectedID}
@@ -99,42 +102,42 @@ function UpdateDepartment() {
                 className="open-issue-dropdown"
               >
                 <option value="">
-                  Select Department you wish to Update from system
+                  Select Job Position you wish to Update from system
                 </option>
                 {filteredData.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.departmentname}
+                  <option key={item.positionID} value={item.positionID}>
+                    {item.positionName}
                   </option>
                 ))}
               </select>
             </div>
             <div className="noticeTitle">
               <label className="noticeLabel">
-                Please Enter the Department name :
+                Please Enter the Job Title :
               </label>
               <input
                 className="notification"
                 type="text"
                 onChange={handleChange}
                 name="name"
-                value={departments.name}
+                value={position.name}
                 required
                 placeholder={errors.name}
               />
             </div>
             <br />
             <div className="noticeDesc">
-              <label className="noticeDescLabel" style={{ marginLeft: 60 }}>
+              <label className="noticeDescLabel" style={{marginLeft:60}}>
                 <br />
-                Please Enter the Description
+                Please Enter the Job
                 <br />
-                Department :
+                Description :
               </label>
               <textarea
                 className="input-field"
                 rows={3}
                 name="desc"
-                value={departments.desc}
+                value={position.desc}
                 onChange={handleChange}
                 required
                 placeholder={errors.desc && errors.desc}
@@ -150,7 +153,7 @@ function UpdateDepartment() {
             </h4>
             <br />
             <button className="noticeAddButtonAddPage" onClick={handleClick}>
-              Update Department
+              Update Job Position
             </button>
           </div>
         </div>
@@ -159,4 +162,4 @@ function UpdateDepartment() {
   );
 }
 
-export default UpdateDepartment;
+export default AddJob;

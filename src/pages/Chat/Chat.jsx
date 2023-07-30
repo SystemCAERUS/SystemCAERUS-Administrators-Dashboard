@@ -21,7 +21,7 @@ function Chat() {
             <section>
               {/*Navbar*/}
               <ChatNavBar/>
-              <ChatBox/>
+              {user? <ChatBox/>:null}
               {/*Chat*/}
             </section>
           </div>

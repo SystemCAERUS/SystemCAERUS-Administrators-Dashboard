@@ -31,7 +31,10 @@ function Map() {
           <div className="mapContent">
             <div className="departmentTable">
               <div className="mapTitle">Departments</div>
-              <div className="partscontent" style={{ overflowY: "auto", maxHeight: "90%" }}>
+              <div
+                className="partscontent"
+                style={{ overflowY: "auto", maxHeight: "90%" }}
+              >
                 <div>
                   <tr className="tr-map">
                     <td className="department-id-map">
@@ -42,16 +45,14 @@ function Map() {
                     </td>
                   </tr>
                   <div className="rendered-map-boxes">
-                    {departments.map(
-                      (department) => (
-                        /*department.status === 1 ? (*/
+                    {departments.map((department) =>
+                      department.hide === 0 ? (
                         <DepartmentBox
                           className="departmentDataBox"
                           userid={department.id}
                           name={department.departmentname}
                         />
-                      )
-                      /*) : null*/
+                      ) : null
                     )}
                   </div>
                 </div>

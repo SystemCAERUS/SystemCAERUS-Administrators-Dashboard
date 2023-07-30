@@ -27,10 +27,13 @@ import UpdateDepartment from "./pages/Map/Manage/UpdateDepartment";
 import HideDepartment from "./pages/Map/Manage/HideDepartment"
 import AddJobPositions from "./pages/Map/Manage/AddJobPosition";
 import AddMachine from "./pages/Map/Manage/AddMachine";
+import UpdateMachine from "./pages/Map/Manage/UpdateMachine";
+
 import CloseMachine from "./pages/Map/Manage/RemoveMachine";
 import ManagePlanned from "./pages/Planner/ManagePlanned";
 import EquipmentPlanned from "./pages/Equipment/EquipmentPlanned";
 import HideJobPosition from "./pages/Map/Manage/HideJobPosition";
+import UpdateJobPosition from "./pages/Map/Manage/UpdateJob";
 import FormAddEmployee from "./pages/Employee/Manage/FormAdd"
 import FormCloseEmployee from "./pages/Employee/Manage/FormClose";
 import FormUpdateEmployee from "./pages/Employee/Manage/FormUpdate"
@@ -39,6 +42,8 @@ import FormCloseEquipment from "./pages/Equipment/Manage/FormClose";
 import FormUpdateEquipment from "./pages/Equipment/Manage/FormUpdate"
 import FromClosePlanner from "./pages/Planner/manage/FormClose";
 import FromOpenPlanner from "./pages/Planner/manage/FormOpen";
+import FromUpdatePlanner from "./pages/Planner/manage/FormUpdate";
+import FromReportPlanner from "./pages/Planner/manage/FormReport";
 
 function App() {
   const { state, signIn } = useAuthContext();
@@ -83,6 +88,12 @@ function App() {
             <Route exact path="/planner/manage/open">
               <FromOpenPlanner/>
             </Route>
+            <Route exact path="/planner/manage/update">
+              <FromUpdatePlanner/>
+            </Route>
+            <Route exact path="/planner/manage/report">
+              <FromReportPlanner/>
+            </Route>
             <Route exact path="/chat">
               <Chat />
             </Route>
@@ -117,7 +128,7 @@ function App() {
               <CloseMachine/>
             </Route>
             <Route exact path="/map/machines/update">
-              <AddMachine/>
+              <UpdateMachine/>
             </Route>
             <Route exact path="/map/departments">
               <ManageDepartment/>
@@ -130,6 +141,9 @@ function App() {
             </Route>
             <Route exact path="/map/positions/hide">
               <HideJobPosition/>
+            </Route>
+            <Route exact path="/map/positions/update">
+              <UpdateJobPosition/>
             </Route>
             <Route exact path="/map/departments/add">
               <AddDepartment/>

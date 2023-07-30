@@ -3,6 +3,7 @@ import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import '../generalPlanner.scss'
 
 function AddPlannedForm() {
   const history = useHistory();
@@ -62,11 +63,7 @@ function AddPlannedForm() {
   const validateForm = () => {
     const errors = {};
 
-    if (
-      !equipmentName.trim() ||
-      !departmentID.trim() ||
-      !desIssue.trim() 
-    ) {
+    if (!equipmentName.trim() || !departmentID.trim() || !desIssue.trim()) {
       errors.form = "Please fill in all fields.";
     }
 
@@ -80,18 +77,26 @@ function AddPlannedForm() {
       return;
     }
 
-    const formdata = new FormData();
-    formdata.append("equipmentName", equipmentName);
-    formdata.append("departmentid", departmentID);
-    formdata.append("desIssue", desIssue);
-    formdata.append("machineID",machineID);
-    formdata.append("plannedDate",givenDate);
+
+    const requestBody = {
+      equipmentName: equipmentName,
+      departmentid: departmentID,
+      desIssue: desIssue,
+      machineID: machineID,
+      plannedDate: givenDate,
+    };
+
 
     axios
-      .post("http://localhost:8800/planner", formdata)
+      .post("http://localhost:8800/planner", requestBody)
       .then((res) => {
         console.log(res);
-        history.push("/machines");
+        console.log(desIssue)
+        console.log(equipmentName)
+        console.log(departmentID)
+        console.log(machineID)
+        console.log(givenDate)
+        history.push("/planner");
       })
       .catch((err) => console.log(err));
   };
@@ -104,9 +109,7 @@ function AddPlannedForm() {
           <Navbar />
           <div className="hrwrapper">
             <div className="title">
-              <span className="notification">
-                Add New Planned Task
-              </span>
+              <span className="notification">Add New Planned Task</span>
             </div>
             <div className="machine-form">
               {formErrors.form && (
@@ -129,7 +132,7 @@ function AddPlannedForm() {
               <div>
                 <tr>
                   <td>
-                    <label htmlFor="">Planned Date</label>
+                    <label htmlFor="" className="planned-date-label">Planned Date :</label>
                   </td>
                   <td>
                     <input
@@ -150,11 +153,13 @@ function AddPlannedForm() {
                   name="departmentID"
                 >
                   <option value="">Please Select the Department</option>
-                  {departments.map((department) => (
-                    <option key={department.id} value={department.id}>
-                      {department.departmentname}
-                    </option>
-                  ))}
+                  {departments.map((department) =>
+                    department.hide === 0 ? (
+                      <option key={department.id} value={department.id}>
+                        {department.departmentname}
+                      </option>
+                    ) : null
+                  )}
                 </select>
               </div>
               <div className="pikers">
@@ -167,9 +172,11 @@ function AddPlannedForm() {
                 >
                   <option value="">Please Select the Machine</option>
                   {machines.map((machine) => (
+                    machine.hideMachine === 0? (
                     <option key={machine.machineid} value={machine.machineid}>
                       {machine.machinename}
                     </option>
+                    ):null
                   ))}
                 </select>
               </div>
@@ -185,4 +192,3 @@ function AddPlannedForm() {
 }
 
 export default AddPlannedForm;
-

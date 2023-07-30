@@ -1,0 +1,62 @@
+.issue-container {
+  display: table;
+  width: 100%;
+}
+
+.issueMsg.issuePrio-1 {
+  background-color: rgb(255, 213, 213);
+  font-weight: 500;
+}
+
+.issueID,
+.issueMsg,
+.issueMachineName,
+.issueDepartmentName,
+.issueExpData,
+.issuePrio {
+  text-align: center;
+  border-bottom: 0.1px solid rgb(219, 219, 219);
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: rgb(82, 82, 82);
+}
+
+.issueID {
+  width: 10%;
+  background-color: rgb(254, 255, 236);
+  font-weight: 600;
+}
+
+.issueMsg {
+  width: 40.3%;
+  background-color: rgb(242, 255, 255);
+}
+.issueMachineName {
+  width: 14.7%;
+  background-color: rgb(255, 246, 255);
+}
+
+.issueDepartmentName {
+  width: 15%;
+  background-color: rgb(255, 228, 213);
+}
+
+.issueExpData {
+  width: 15%;
+  background-color: rgb(255, 214, 255);
+}
+
+.issuePrio {
+  width: 10%;
+  background-color: rgb(214, 255, 213);
+}
+
+.issuePrio-2 {
+  background-color: rgb(255, 200, 200);
+}
+
+.issuePrio-1 {
+  background-color: rgb(255, 219, 252) !important;
+}
+
+

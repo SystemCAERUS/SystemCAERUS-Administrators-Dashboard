@@ -9,7 +9,7 @@ function EmployeeBox(props) {
             <div># {props.userid}</div>
         </td>
         <td className="date">
-          <img className="imageEMP" src={props.imageURL} alt="" />
+          <img className="imageEMP" src={"http://localhost:8800/"+props.imageURL} alt="" />
         </td>
         <td className="msg">
           <div className="message">{props.name}</div>

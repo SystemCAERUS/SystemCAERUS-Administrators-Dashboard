@@ -1,0 +1,21 @@
+.chatHeading{
+    height: 80px;
+    display: flex;
+    background-color: rgb(200, 200, 200);
+    align-items: center;
+    justify-content: space-between;
+
+
+    .chatTitle{
+        margin-top: 20px;
+        margin-left: 50px;
+        margin-right: 300px;
+        font-size: 32px;
+        color: rgb(93, 93, 93);
+        flex-grow: 1; 
+    }
+
+    .buttonGoogle{
+        margin-top: 5px;
+    }
+}

@@ -95,21 +95,30 @@ function AddEquipmentForm() {
       return;
     }
 
-    const formdata = new FormData();
-    formdata.append("equipmentName", equipmentName);
-    formdata.append("departmentid", departmentID);
-    formdata.append("desIssue", desIssue);
-    formdata.append("machineID",machineID);
-    formdata.append("phoneNumber",phoneNumber);
-    formdata.append("givenDate",givenDate);
-    formdata.append("returnDate",returnDate);
-    formdata.append("shopName",shopName);
+    const requestBody = {
+      equipmentName: equipmentName,
+      desIssue:desIssue,
+      shopName:shopName,
+      phoneNumber:phoneNumber,
+      givenDate:givenDate,
+      returnDate:returnDate,
+      departmentID:departmentID,
+      machineID:machineID,
+    };
 
     axios
-      .post("http://localhost:8800/machines", formdata)
+      .post("http://localhost:8800/repairs", requestBody)
       .then((res) => {
         console.log(res);
-        history.push("/machines");
+        console.log(equipmentName)
+        console.log(desIssue)
+        console.log(shopName)
+        console.log(phoneNumber)
+        console.log(givenDate)
+        console.log(returnDate)
+        console.log(departmentID)
+        console.log(machineID)
+        history.push("/equipment");
       })
       .catch((err) => console.log(err));
   };
@@ -198,9 +207,11 @@ function AddEquipmentForm() {
                 >
                   <option value="">Please Select the Department</option>
                   {departments.map((department) => (
+                     department.hide === 0 ? (
                     <option key={department.id} value={department.id}>
                       {department.departmentname}
                     </option>
+                     ) : null
                   ))}
                 </select>
               </div>
@@ -214,9 +225,11 @@ function AddEquipmentForm() {
                 >
                   <option value="">Please Select the Machine</option>
                   {machines.map((machine) => (
+                     machine.hideMachine === 0? (
                     <option key={machine.machineid} value={machine.machineid}>
                       {machine.machinename}
                     </option>
+                        ) : null
                   ))}
                 </select>
               </div>

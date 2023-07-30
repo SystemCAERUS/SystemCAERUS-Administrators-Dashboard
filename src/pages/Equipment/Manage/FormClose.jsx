@@ -56,7 +56,7 @@ function HandlecloseRepair() {
     }
 
     const requestData = {
-      selectedJobID: parseInt(selectedID),
+      selectedID: parseInt(selectedID),
     };
 
     axios
