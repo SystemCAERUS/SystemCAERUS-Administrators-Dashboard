@@ -42,15 +42,16 @@ function UpdateIssue() {
   const validateForm = () => {
     const errors = {};
 
+    //Regx codes to validate email and password
     if (
       !file ||
       !employeeName.trim() ||
-      !email.trim() ||
+      !email.trim() || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ||
       !employeeDes.trim() ||
       !optional.trim() ||
-      !phone.trim()
+      !phone.trim() || phone.length !==10 || !/^[0-9]{10}$/.test(phone)
     ) {
-      errors.form = "Please fill in all fields.";
+      errors.form = "Please fill in all fields Correctly, Check the Phone number and Email in the valid Format";
     }
 
     setFormErrors(errors);

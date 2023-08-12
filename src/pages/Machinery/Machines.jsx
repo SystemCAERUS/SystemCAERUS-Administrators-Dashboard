@@ -9,8 +9,11 @@ import "./machine.scss";
 function Machine() {
   const [machines, setMachines] = useState([]);
   const [selectedMachine, setSelectedMachine] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const filteredData = machines.filter((item) => item.hideMachine === 0);
+  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const filteredData = machines.filter(
+    (item) => item.hideMachine === 0 &&
+    (!selectedDepartment || item.departmentid === selectedDepartment.departmentid)
+  );
 
   useEffect(() => {
     const fetchMachines = async () => {
@@ -32,9 +35,26 @@ function Machine() {
     setSelectedMachine(null);
   };
 
-  const filteredMachines = filteredData.filter((machine) =>
-    machine.uniqueName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const handleDepartmentSelect = (departmentId) => {
+    // Find the selected department based on the department ID
+    const selectedDept = machines.find((item) => item.departmentid === departmentId);
+    setSelectedDepartment(selectedDept);
+  };
+
+  // Custom function to get unique departments
+  const getUniqueDepartments = (data) => {
+    const departmentsSet = new Set();
+    const uniqueDepartments = [];
+    data.forEach((item) => {
+      if (!departmentsSet.has(item.departmentid)) {
+        departmentsSet.add(item.departmentid);
+        uniqueDepartments.push(item);
+      }
+    });
+    return uniqueDepartments;
+  };
+
+  const departments = getUniqueDepartments(machines);
 
   return (
     <div className="home">
@@ -43,12 +63,27 @@ function Machine() {
         <Navbar />
         <div className="hrwrapper">
           <div className="searchBar">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value === "" ? "" : e.target.value)}
-              placeholder="🔍 Search machine"
-            />
+            <select
+              value={selectedDepartment ? selectedDepartment.departmentid : ""}
+              onChange={(e) => handleDepartmentSelect(Number(e.target.value))}
+              style={{
+                backgroundColor: "#f2f2f2",
+                padding: "8px 12px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                fontSize: "16px",
+                color: "#333",
+                outline: "none",
+                cursor: "pointer",
+              }}
+            >
+              <option value="">All Departments</option>
+              {departments.map((department) => (
+                <option key={department.departmentid} value={department.departmentid}>
+                  {department.departmentname}
+                </option>
+              ))}
+            </select>
             <div className="machineTopic">MACHINES BY DEPARTMENT</div>
           </div>
           <hr />
@@ -56,8 +91,8 @@ function Machine() {
             className="contentMachines"
             style={{ overflowY: "auto", maxHeight: "75vh" }}
           >
-            {filteredMachines.map((item) => (
-              <div key={item.id} onClick={() => openModal(item)}>
+            {filteredData.map((item) => (
+              <div key={item.machineid} onClick={() => openModal(item)}>
                 <MachineBox
                   image={item.image}
                   name={item.machinename}

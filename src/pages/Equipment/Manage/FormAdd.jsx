@@ -170,7 +170,7 @@ function AddEquipmentForm() {
               <div>
                 <tr>
                   <td>
-                    <label htmlFor="">Given Date</label>
+                    <label htmlFor="" style={{ color: "black", marginRight: "20px" }}>Given Date</label>
                   </td>
                   <td>
                     <input
@@ -185,7 +185,7 @@ function AddEquipmentForm() {
               <div>
                 <tr>
                   <td>
-                    <label htmlFor="">Return Date</label>
+                    <label htmlFor="" style={{ color: "black", marginRight: "20px" }}>Return Date</label>
                   </td>
                   <td>
                     <input

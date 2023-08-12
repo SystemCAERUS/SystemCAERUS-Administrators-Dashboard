@@ -150,7 +150,7 @@ function CloseIssue() {
                 placeholder="Employee's names who finished the Task    (Ex: Janith, Kavindu, Lahiru...)"
                 className="input-small-des"
               />
-
+{/*}
               <div className="pikers">
                 <select
                   className="dropdown"
@@ -201,7 +201,7 @@ function CloseIssue() {
                   <option value={"Other"}>Other</option>
                 </select>
                 <br />
-              </div>
+                </div>*/}
 
               {formErrors.form && (
                 <p style={{ color: "red" }}>{formErrors.form}</p>

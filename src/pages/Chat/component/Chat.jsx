@@ -26,7 +26,7 @@ const Chat = () => {
 
   return (
     <>
-      <main className={style.main}>
+      <main className={"chat-main"}>
         {messages &&
           messages.map((message) => (
             <Message key={message.id} message={message} />

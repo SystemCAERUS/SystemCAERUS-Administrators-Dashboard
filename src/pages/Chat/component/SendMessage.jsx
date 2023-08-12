@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {auth, db} from '../../../firebase'
 import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
+import "./sendMessage.scss"
 
 const style = {
   form: `h-14 w-full max-w-[728px]  flex text-xl absolute bottom-0`,
@@ -29,7 +30,7 @@ const SendMessage = ({scroll}) => {
   }
 
   return (
-    <form onSubmit={sendMessage} className={style.form}>
+    <form onSubmit={sendMessage} className="formx">
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -37,7 +38,7 @@ const SendMessage = ({scroll}) => {
         type='text'
         placeholder='Message'
       />
-      <button className={style.button} type='submit'>
+      <button className="button" type='submit'>
         Send
       </button>
     </form>

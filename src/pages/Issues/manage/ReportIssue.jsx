@@ -6,7 +6,6 @@ import axios from "axios";
 import "./reportIssue.scss";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import { PDFDocument, rgb } from "pdf-lib";
 
 function ReportIssue() {
   const [breakdowns, setBreakdowns] = useState([]);
@@ -36,6 +35,20 @@ function ReportIssue() {
     });
   };
 
+
+  const calculateTimeDifference = (closingTime, addTime) => {
+    const closingDate = new Date(closingTime);
+    const addDate = new Date(addTime);
+    const timeDifferenceMs = closingDate - addDate;
+  
+    // Convert the time difference to a readable format
+    const seconds = Math.floor(timeDifferenceMs / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+  
+    return `${days}D - ${hours % 24}H - ${minutes % 60}m`;
+  };
 
 
   useEffect(() => {
@@ -67,12 +80,12 @@ function ReportIssue() {
                 >
                   <div className="issuetableHeader">
                     <tr>
-                      <td className="issueDate">Job ID</td>
+                      <td className="issueDate">Down Time</td>
                       <td className="issueDes">Description</td>
                       <td className="issueMachine">Machine</td>
                       <td className="issueDepartment">Department</td>
                       <td className="issueExp">Employee</td>
-                      <td className="issueP">Down Time</td>
+                      <td className="issueP">Issue ID</td>
                     </tr>
                   </div>
 
@@ -89,7 +102,7 @@ function ReportIssue() {
                           issueMachineName={item.machinename}
                           issueDepartmentName={item.departmentname}
                           issueExp={item.finishedWorkers}
-                          issuePrio={item.time}
+                          issuePrio={calculateTimeDifference(item.closingTime,item.addTime)}
                         />
                       ) : null
                     )

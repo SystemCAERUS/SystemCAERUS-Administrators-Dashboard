@@ -40,6 +40,7 @@ import FormUpdateEmployee from "./pages/Employee/Manage/FormUpdate"
 import FormAddEquipment from "./pages/Equipment/Manage/FormAdd"
 import FormCloseEquipment from "./pages/Equipment/Manage/FormClose";
 import FormUpdateEquipment from "./pages/Equipment/Manage/FormUpdate"
+import FormReportEquipment from "./pages/Equipment/Manage/FormReport"
 import FromClosePlanner from "./pages/Planner/manage/FormClose";
 import FromOpenPlanner from "./pages/Planner/manage/FormOpen";
 import FromUpdatePlanner from "./pages/Planner/manage/FormUpdate";
@@ -183,6 +184,9 @@ function App() {
             </Route>
             <Route exact path="/equipment/manage/update">
               <FormUpdateEquipment/>
+            </Route>
+            <Route exact path="/equipment/manage/report">
+              <FormReportEquipment/>
             </Route>
           </div>
         )}

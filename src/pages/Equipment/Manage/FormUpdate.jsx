@@ -151,7 +151,7 @@ function UpdateEquipmentForm() {
           <div className="hrwrapper">
             <div className="title">
               <span className="notification">
-                Add New Equipment to Repair Section
+                Update Equipments in Repair Section
               </span>
             </div>
             <div className="machine-form">
@@ -164,7 +164,7 @@ function UpdateEquipmentForm() {
                   onChange={handleDropdownChange}
                   className="open-issue-dropdown"
                 >
-                  <option value="">Select Repair Part You wish to close</option>
+                  <option value="">Select Repair Part You wish to update</option>
                   {filteredData.map((item) => (
                     <option key={item.repairid} value={item.repairid}>
                       {"Repair Part name --> " +
@@ -213,7 +213,7 @@ function UpdateEquipmentForm() {
               <div>
                 <tr>
                   <td>
-                    <label htmlFor="">Given Date</label>
+                    <label htmlFor="" style={{ color: "black", marginRight: "20px" }}>Given Date</label>
                   </td>
                   <td>
                     <input
@@ -228,7 +228,7 @@ function UpdateEquipmentForm() {
               <div>
                 <tr>
                   <td>
-                    <label htmlFor="">Return Date</label>
+                    <label htmlFor="" style={{ color: "black", marginRight: "20px" }}>Return Date</label>
                   </td>
                   <td>
                     <input

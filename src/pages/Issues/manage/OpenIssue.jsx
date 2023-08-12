@@ -204,9 +204,11 @@ function OpenIssue() {
                 >
                   <option value="">Select Department</option>
                   {departments.map((department) => (
+                    department.hide === 0 ? (
                     <option key={department.id} value={department.id}>
                       {department.departmentname}
                     </option>
+                    ):null
                   ))}
                 </select>
               </div>
@@ -230,9 +232,11 @@ function OpenIssue() {
                 >
                   <option value="">Select Machine</option>
                   {filteredMachines.map((machine) => (
+                    machine.hideMachine===0?(
                     <option key={machine.machineid} value={machine.machineid}>
                       {machine.machinename} # {machine.uniqueName}
                     </option>
+                    ):null
                   ))}
                 </select>
               </div>

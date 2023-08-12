@@ -1,0 +1,32 @@
+/* sendMessage.css */
+
+/* Style for the form container */
+.formx {
+    margin-bottom: 100px;
+    margin-left: 10px;
+    height: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    font-size: 1.5rem;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  /* Style for the input field */
+  .input {
+    width: 200% !important;
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    background-color: #1f2937;
+    color: #fff;
+    outline: none;
+    border: none;
+  }
+  
+  /* Style for the button */
+  .button {
+    width: 10%;
+    background-color: #6cb352;
+  }
+  

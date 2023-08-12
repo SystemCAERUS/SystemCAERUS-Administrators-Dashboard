@@ -15,7 +15,8 @@ function UpdateMachine() {
   const [URL, setURL] = useState("");
   const [smallDes, setSmallDes] = useState("");
   const [formErrors, setFormErrors] = useState({});
-  const [departments, setDepartments] = useState([]);
+  const [departmentsData, setDepartments] = useState([]);
+  const departments = departmentsData.filter((item) => item.hide === 0);
 
   //machine data
   const [machines, setMachines] = useState([]);
@@ -118,7 +119,7 @@ function UpdateMachine() {
     console.log(formdata)
 
     axios
-      .put("http://localhost:8800/machines", formdata)
+      .put("http://localhost:8800/machines/update", formdata)
       .then((res) => {
         console.log(res);
         history.push("/machines");
@@ -225,7 +226,7 @@ function UpdateMachine() {
                 </select>
               </div>
               <button className="machine-button" onClick={handleUpload}>
-                Add New Machine
+                Update Machine
               </button>
             </div>
           </div>

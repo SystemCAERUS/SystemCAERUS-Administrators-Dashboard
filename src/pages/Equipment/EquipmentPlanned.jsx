@@ -35,13 +35,13 @@ function EquipmentPlanned() {
                 <div className="updateManageIssues">
                   Update Exsiting Details
                 </div>
-              </Link>
+              </Link>{/*}
               <Link
-                to="/planner/manage/report"
+                to="/equipment/manage/report"
                 style={{ textDecoration: "none" }}
               >
                 <div className="reportGenerateIssues">Report Generation</div>
-              </Link>
+  </Link>*/}
             </div>
             <div className="bottom">
               <a href="https://pyramidwilmar.com/" target="_blank">

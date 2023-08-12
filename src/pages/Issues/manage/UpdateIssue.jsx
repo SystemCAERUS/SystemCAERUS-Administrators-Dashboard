@@ -88,9 +88,9 @@ function UpdateIssue() {
   const validateForm = () => {
     const errors = {};
 
-    if (!selectedIssueID) {
+    if (!selectedIssueID || !issueDes || !priority || !sDepartment || !sMachine) {
       errors.form =
-        "Please Select Job Position and Enter Security Code correctly";
+        "Please Enter All details Correclty";
     }
 
     setFormErrors(errors);

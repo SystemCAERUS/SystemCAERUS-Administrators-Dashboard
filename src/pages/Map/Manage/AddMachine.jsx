@@ -15,7 +15,8 @@ function AddMachine() {
   const [URL, setURL] = useState("");
   const [smallDes, setSmallDes] = useState("");
   const [formErrors, setFormErrors] = useState({});
-  const [departments, setDepartments] = useState([]);
+  const [departmentsData, setDepartments] = useState([]);
+  const departments = departmentsData.filter((item) => item.hide === 0);
 
   useEffect(() => {
     const fetchDepartments = async () => {
